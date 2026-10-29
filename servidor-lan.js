@@ -3,7 +3,7 @@
    APOCALIPSIS TrueRMS — Servidor LAN (sin dependencias, sin internet)
    Uso:   node servidor-lan.js            (puerto 8080)
           node servidor-lan.js 3000       (otro puerto)
-   Poné este archivo en la misma carpeta que apocalipsis-truerms.html.
+   Poné este archivo en la misma carpeta que index.html (o apocalipsis-truerms.html).
    Todos (incluido quien lo ejecuta) entran desde el navegador a la
    dirección que se muestra en la consola. No usa WebRTC: todo pasa por
    esta PC, así que funciona aunque la conexión directa entre PCs falle.
