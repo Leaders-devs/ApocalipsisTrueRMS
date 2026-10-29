@@ -76,14 +76,4 @@ servidor-lan.js    servidor opcional para jugar por red local
 poster.png         este póster
 ```
 
-## Publicarlo en GitHub Pages
-
-1. Subí `index.html`, `servidor-lan.js`, `poster.png` y este `README.md` al repo.
-2. **Settings → Pages → Source:** `Deploy from a branch`, rama `main`, carpeta `/ (root)`.
-3. En un par de minutos queda en `https://<tu-usuario>.github.io/<repo>/`.
-
-> La conexión por código usa WebRTC (PeerJS). Si en alguna red no conecta, usá el servidor LAN.
-
----
-
 <p align="center"><sub>Proyecto de fans, sin fines de lucro. Ningún profesor fue lastimado en la realización de este juego.</sub></p>
