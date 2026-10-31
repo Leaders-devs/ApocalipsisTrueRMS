@@ -1,0 +1,23 @@
+Apocalipsis TrueRMS
+Copyright (c) 2026 Leaders Devs. Todos los derechos reservados.
+
+Este software, su código, gráficos, textos, música y demás contenidos son
+propiedad de Leaders Devs. El código se publica en este repositorio solo para
+poder verlo y jugar el juego en https://leaders-devs.github.io/ApocalipsisTrueRMS/.
+
+Queda prohibido, sin autorización previa y por escrito de Leaders Devs:
+copiar, modificar, redistribuir, sublicenciar, publicar en otro sitio o usar
+con fines comerciales todo o parte de este software.
+
+------------------------------------------------------------------------------
+Componentes de terceros (se rigen por sus propias licencias):
+
+- PeerJS (https://peerjs.com) — licencia MIT. Se carga desde un CDN para la
+  conexión entre jugadores.
+- Fuente Monocraft (https://github.com/IdreesInc/Monocraft)
+  Copyright (c) 2022, Idrees Hassan — SIL Open Font License 1.1.
+  La fuente va incrustada en index.html; el texto completo de su licencia
+  está en el archivo OFL-Monocraft.txt.
+
+Los nombres y personajes que aparecen en el juego se usan en un contexto de
+parodia/homenaje, sin fines de lucro.

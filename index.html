@@ -3,10 +3,15 @@
 <head>
 <meta charset="utf-8">
 <title>Apocalipsis TrueRMS</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23f2c230'/><rect x='2' y='2' width='12' height='6' fill='%239fb58f'/><rect x='6' y='10' width='4' height='4' fill='%23333'/><rect x='0' y='13' width='4' height='3' fill='%239d5fd4'/></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="theme-color" content="#2a0f3e"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<style>
+/* Monocraft (SIL OFL 1.1, © 2022 Idrees Hassan) — fuente estilo Minecraft incrustada. Reemplaza a las fuentes viejas con el mismo nombre. */
+@font-face{font-family:'MC';src:url(data:font/woff;base64,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) format('woff');font-display:block}
+@font-face{font-family:'Press Start 2P';src:url(data:font/woff;base64,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) format('woff');size-adjust:135%;font-display:block}
+@font-face{font-family:'VT323';src:url(data:font/woff;base64,d09GRgABAAAAABJMAA8AAAAAOLAABDMzAAAAAAAAAAAAAAAAAAAAAAAAAABHREVGAAASBAAAABYAAAAWABEA0EdQT1MAABIcAAAAEAAAABAAGQAMR1NVQgAAEiwAAAAgAAAAINkL2QFPUy8yAAAQWAAAAFUAAABg1fC9E2NtYXAAABCwAAAAdQAAAJStOLSMY3Z0IAAAESgAAAAEAAAABAAkAqxnYXNwAAAR/AAAAAgAAAAI//8AA2dseWYAAAFYAAAMlgAAMUSsCPikaGVhZAAAD7QAAAA2AAAANoPTy91oaGVhAAAQOAAAACAAAAAkXxOqsmhtdHgAAA/sAAAASQAAAaIM5AmEbG9jYQAADhAAAAGiAAABosN9tvJtYXhwAAAN8AAAACAAAAAgARsCJW5hbWUAABEsAAAAtQAAAUQXkDFscG9zdAAAEeQAAAAXAAAAIP+kADN4nKVbXW7bSBJukgmMwBhoGwJhBN5BRBCDeVlgMyAIz0MWmEcdQUfQEfoIcwQdwY/7sA9+9BF0BB2hDyApi/rt6ibp2LEMO7Girq6u+uqr6irG1S46V+2brWvcjXMPfvA349DGEEKsd5fHGIKrXah31Uk+U41D241DW+3D9RDqXYwxuto55+odfuaLc+th7JuxHwf8Hlr8bnv87sce5WcvELbBXWPkP1ylMu+dA0nd2JE8lNa1HclrY6xO1wOIiddNtS9lB9cY7W5Amgf96RzyhZLgC3S5POpiOODlMcYAX/jDGc1+d+6BVRrhaHrQkY/L7/ZjP1GLDqq/6d9Bfqx37BW3Rn+AGq5y8I/gibVzYIveq+4eNs4OT7+AYVy+Etf4HmzZDu3g8dTzCysXqpOsW5M/s8OZVSdjcbBQqHf10d069zAmw4B7yZgxRNFr7yIgS85ipVR7wB7YwY9dC1bB9xG1Dj07MF6NV9bO/THn2WT6OV/egy/9QCYFsKFpurFDA7H/rgfQgH4COAh3CBhUzci7RS08nt1zTKGVLl/LfUXbDsEiuO4xzgDVB5Ie4acAhX5MowRQ3Rey2KrVPqqsZIepJcDXfOpRwNKNg6yL4boJ1Z5/Oz9lsbpWLXznO4pSz7tfN/VOI5QFXA/Wc3fkA3UbqQ+B33HIiPmvB0VczO2wco6cCBbAY/gYiKsCGRCMcD1MfM9ez80me+OOGhr4G4A4Cphcfoo1SzFWTJLoJCSlOoFyGz6Jc8zI9Y7YFqK/YYTDeeGTwMjf/+bP3Opn0GTkUUTZo0YiRf49c4ZwqEYGskA7Q5wmoJHhIaJZL4jGCiPy8ggRmvjCopGJcVSuUWS/sFcw2WSNiJiJDc5SBs0mLiKd+/vfyEBr5+6QKcEdHfAkIpOzzgHdeQqIDgBnrPaXx5Djad0JH/jO935ANBASaWG4fK1O1019zCPhoYMwQKrkQPAdxgEZTCQ0W+WWSSR5PvPY+W7UOFYKws3J1wX3yN7Fnrgb+KxgKs/51INPrxvIqahWHp+f7Cfpc/Spjd3dJ82BBfpRGOCE0R9J7csjZv0JZ3rMy2hqPmmzjfH8BKttJrtFhAE1YfaTyCLRpVThJOUitHh9LLj4jvZP0YH5EXKlN6m62UaTDfKzf0QJgC9QEsTneQnzNJOqx2rIK/AJB+cnOoKbXdkOnjWarKz25yc42OUxR++DgJ+yWWcQxKwI+MkQ8QtgvgWsM/iCMu71UO/CdYM7zjA37ZMqn0H3E9bjSCPFq1OOm3WKsrQzotDsDUiY2V/zDue/PPccFH8hKYTwNlKgCmFExVjvYn2E0J5iySOTGCwBkiZo4lyIRUWLVQCmA1P9QuWKsQbV78TfHqsmT7VaxprNllx2fgpF5Pe4kllXsZZjuTXIkVdO/8JN5Wn8RKpPpyEuIj4qYkqrMUywUt3geaAoICRE4fEgmQTjHH3CMQ4VDPJXaWfJbCnPDK2tSLOKz0omBvEhxmoPJzg/oeTqJJK93jgQ1LkfsqJXco5zUJe2mB35/cD1PGZ00jGqxeQk9Q4iQOoQSlem+kCqISCT3TL8w0qkWopzhFyP9pJg4zhqthbz9e51eSbdCULB9FSvIUzpgtaTE5nqYSEQU4jFOSWnYph2o8mqFOBSKOHmsOc35+p/Sn3XawUDmeh/fHMUd1w3mv+NTT1Xc2LTE+2ENBgjF0xFJZmiENnac32BRsTlECS16tYgc45D68ce897Qkm5EJEEyXk3a4YoV3akrk6FQNTIALATr4XU8WDvcYZ3rs/hmhH4zodxshWv5dLL+E0YNa1n9C9m53mW3E7IeZ8Q2ZSyJecQvWCFGkwXrndQJROUFc9vP/TA7SYlElRF7FCsrDiOgEbr8KtoPnGog3sF8xUptSXhpKTBiCevUgLh8jXlkrowdWuFQ3ENoz7Al7fSHdiw67VZQp8IkIiGPDN/sF9qLvUMshgqGIoI/2ZzE9sMtTqaK0Eh/KR/pNYereVn5i+wgoZ4IkPJXYvx6hzloXMxBUxZdfjnjuxVy6tiZ7MvW3CfdqXgv/VDmHsw8CMk88ZnbkuaUXHey/0xOSX00jEqgiPOTuQ9J38XkKGODdI8Unoyi/X+qQWxI3TPbdeFmGUZ27SLeCo/m5oiacE38FRjE3Ivu8V6kPaQhY3+DCml2ZEVTkQc4x6fuHGg5aI6PSM909xbL8epjvYOO4QNWi17aS3hYr1Wk76OYnI8dJ+pkd6eeq0H+nqKwl25UjMaY0YaCYKLoka794MWu1QkwR1nZ7P6F7/956Gs3QboZhgZSIppcwyFX1EezP/dfqZQ+Br2du/qIFcYd9nFxw48Ftwo9UicBY1caWXoJoJs+37BWVK8w2fqPI/gTaRaWs67XQ0wdgiPeuH937reZ6JmLqFQ1BpOoltmAutFwz/oNDOnx3r2DppTwb7Nttm4gpoeU5YdUFHoOIaQCTmrsF8RaAYAEMb03mL+mCDH6AaKJB6hjKRmo2qNNV4wNJgBASQqQU+RuVm3uG6u8gwo+oC4qEBi3U7nj4fDWDghA1iia0mDv1CjJsW5W3/N+LUePbWsTY8WQdyFzD2W1buroplqX+fzWuVaZvGsl1ddHqf+EIbij4AU7kPDhKwapwNkVdAVDNobuIvWNqX/OfWMHDOki7i3d7CIDsiX2dNcDO0oHNwQhfanhOE5W2DEtvNpgrLBnsYvOZoM4m4mWaW7oZt4z9PC6aKFogB0GTrs6kaBjpUKaDGzikV88+6Cj4L4RRy1SK8sOw7xYnhWk7TPRidJVsgA0O8G/JycY0myForldPgnIFNPZ42SK4IlqzY8N9nGxt2o5qzN9VoYepdcUEMLHuw//JT6WO19T9BFRDdtLbJ6VT7SjOJFFmrxT1i3E+dpk61JekPOVEpdlrjDz6cSvf0nuvORSNk/uPvyJue8uTR9LqdzK/dH5K9X1C99AJ5O7ostrwKrNXnmpWJP7W5p+MiKhhukoB0mLAycwIgf7WqLZ93+ghM9Ql3GdXtzJGXfmXh6zHnAMGVrWCXmV6e9GLn65y4tmOv+l3d6JBPLlT0m4TYhllBkpHHm5mExQ4f+18b+RQ76Pi+rAvASq+tImjekeMyGATWV96iRP1nMEvn391B55BztxSrJGktOwnKk1jBSOhCVdUk6V+YROqqjjChyy4RKR5JxCxIlBCFms9zOx/kKPOnFtCnZ2kmlcLzJnWckme1PdzCd9KivZOeZ8n6wpc047GMmPVuKyzHnmXJI7J7mUvcychdQML8vnTxP9XqrLd9/uy/kBVefEnqQfthwip7ZgFI2iGVT9C5zXmE7BbHymnv0C5/2UhJkYz+YF8zGeJC1znu18zEf5/InuzYle7OCn6Dz/tdDNX9FkiDKbnQ2lrMTzMe3dkHdbr2N1r5f9kWd8dPnG7nQIaax7ftKb0LO7gcyY+KDskqt/TKecrsf8NA9eKabyhBPeLe/W/VrywkwnX7w/kbood+W6OW5YlL0gvZCfPxP12fJDKdlg7VW2+PAn61zeiGZtPKs0T8Sx9Z3kp67er/rclYC51/qt4zu1vKA3bQEehXmg3qp3b6+30iwk1VsTfE6mG7Y+lxsu2RCNK3OOJXy+X94Un9MJTOkKI7WQu4yfidS8Nn9RV+qBw9l9smU+S5FpSjFPKVaS1d608hZrd2Ofta7+lrCkwaoiGjP9wd3FEms7XZGpRKlA1jXk2Z9kQX3UztvnkFLvhmckprZCpGfc8XmuSpOLkx6LRzSJKr6mcY1F5FsqMiEIM8KZynplRfayrJ+pyBLpzsv8+YrMEq6VnUfM2yqyufM3WpGBPH4ODLqDH7k7jE8nQhrnR6IMf2K1Nc5UW+2k2hKoYd8396Cfq7WS7xLUdRY1WV3WWa9cPYnVxs6/1CM2WFVK7gc/V19ZD8zrgXVNgeKqmE7xSFFnVCQJM1oaVaUaaUX3scXKKobYPEOvF06g0+McSeV8jG7GP1CBn7M9mudsj9IvrfbNc3q/eeb3cfIx7fFSg+Olfwfqgn/nPuwN5d701G/krh8/dbzi5y9MDIp36XEReFD8lZ+X+Q49ARKlP/wAz9jiQ+yEjGaLzxVjRHVsV/iuj8CuWkq46bSpn52ApcfB0wxrrnXOYtM9a019+NR7pI6H9h2z3lRwxUqvD+/KrczW+XZ2Ua7kIs12naMZAr6wp9wIeU5czpaN1razu7bPc9DEm/wWuVlb7cleaSaN6/D/GZCTlT/1qTP8sycby00GBiUgi7Kd/ncD2xO5U0/KDUmfks1PQn1qANT/AQhu4JMAAAABAAAA0AH0AAkAAAAAAAIAAAABAAEAAABAAC4AAAAAAAAAAAAAABIAJABOAHMAmwDLANcA9AEQASwBQAFPAVsBZgGBAakBvQHhAgYCJAJDAmUCfwKmAskC2wLxAxUDKANLA20DjQOpA8kD5wP+BBMEJgRDBFkEbgSDBKQEsgTPBOwFBwUgBUIFYAWDBZQFqgXHBeQGEQYtBk0GXgZ6BosGpwazBsMG4Ab9BxsHNwdVB20HigejB7wH2Qf5CAwIJwg7CFYIcwiQCKgIxQjeCPIJDwkmCVEJbAmICaQJsAnLCeYJ5gn5Ch8KPgpnCpIKpgrSCuQLCgsmC1gLaAuoC7QLzAvmDAUMKQw5DE8Mawx3DIoMngy9DO8NIA1QDYkNrA3SDfgOIg5QDngOpA7FDukPCg8rD1APcw+TD7MP1w/5EBgQSRBvEJUQvxDtERURQBFjEYQRpRHKEe0SFBIvElESeRKhEs0S/RMnE1cTfROhE8kT8RQdFEcUZBSBFKIUwRTrFRIVOBVeFYgVthXeFfcWGRY4FlcWehabFsEW2xcDFw8XGxcrFzsXSxdjF3sXhxeeF8kX5hgDGCAYPRhZGIMYogAAAAEAAAAEMzNciUhkXw889QALBDgAAAAA5Vip1gAAAADlWKnfAAD/EFoABLAAAAAIAAIAAAAAAAB4nGO6wKDCwMDwgaGCAQZA7AowvwLMww5gOiqwymIXxVSDaYYNnLSBstHlMN3wAUkEn2345DHVw0KBPGADhcTbxYA93ADb4hRrAAAAeJxjYGRgYNnwX4AhkekCA8OKC1EMDIwMqIARAHsiBMx4nGNgYbrAOIGBlYGBaR/TFwYGhukQmomNwZRRnIGBiYGNkwEMGhgYmBkYDigxIIMDDArqIswH/ncwJLJsYPjAwMDACBJmimD2YGBgUGBQAACykg2LAAAAeJx1jbEJAkEUBUdXM4OD20BkhafBWoPNiSUINqBgoLBcAwZeaAt3id9KvnBo6CQTTDDAGAhAJDAaPGEPJCoCM3YUXFELLbVWVlkd8zRrE90BcaJRrbnStx5+1d/e+sOK3exqFztbem37Z9909+Hzlw+QkSMNAAAAACQCrHicbcyxTsJgGIXhB0ENi4OD838B0mIjCxdgxMTFwcGt1Fog2Jq/ZfMKvD4vyKR20ITpvHm/7xycezE2mkyxY+CRS7uBT1z4HHjswdfAkz8/p658D3zW+5VXUanUCu7lWq1c7Vqw0el8aC2lUpWtzsbBWqLQeJf+21ipFVKPGrVGIcq96Y6YJ6XKwV4uuuvvXZ9RpRRkEnPBUjjS//ULMzcyM5m5zMKzUtTa9o3gViL7AaP0LRkAAAB4nGNgZgCD/wsZjBgYGBgZ0AAAKwcB1wAAAAAB//8AAgABAAAADAAAAAAAAAACAAEAAQDPAAEAAAABAAAACgAMAA4AAAAAAAAAAQAAAAoAHAAeAAJkZmx0AA5sYXRuAA4AAAAAAAAAAA==) format('woff');size-adjust:76%;font-display:block}
+</style>
 <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js" onerror="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js';document.head.appendChild(s)"></script>
 <style>
 *{box-sizing:border-box}
@@ -64,17 +69,33 @@ input.code{font-family:'Press Start 2P',monospace;font-size:38px;width:270px;tex
 #hud{position:absolute;inset:0;display:none}
 #hud.on{display:block}
 #party{position:absolute;top:8px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
-.pc{width:168px;background:rgba(12,6,22,.85);box-shadow:inset 0 0 0 2px var(--c),0 3px 0 rgba(0,0,0,.6);padding:5px 6px 6px;display:flex;gap:6px;align-items:center}
-.pc canvas{image-rendering:pixelated;width:42px;height:39px;flex:none;background:#1a0f2a}
+.pc{width:206px;background:rgba(12,6,22,.85);box-shadow:inset 0 0 0 2px var(--c),0 3px 0 rgba(0,0,0,.6);padding:5px 6px 6px;display:flex;gap:6px;align-items:center}
+.pc canvas{image-rendering:pixelated;width:50px;height:46px;flex:none;background:#1a0f2a}
 .pc .r{flex:1;min-width:0}
 .pc .n{font-family:'Press Start 2P';font-size:9px;color:var(--c);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;justify-content:space-between}
 .pc .n span{color:#ffe14a}
-.bar{height:11px;background:#2a0f1a;box-shadow:inset 0 0 0 1px #000;margin-top:4px;position:relative;overflow:hidden}
+.bar{height:15px;background:#2a0f1a;box-shadow:inset 0 0 0 1px #000;margin-top:4px;position:relative;overflow:hidden}
 .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--c);transition:width .15s}
-.bar b{position:absolute;inset:0;font-family:'Press Start 2P';font-size:7px;color:#fff;text-align:center;line-height:11px;text-shadow:1px 1px 0 #000;font-weight:normal}
+.bar b{position:absolute;inset:0;font-family:'Press Start 2P';font-size:8px;color:#fff;text-align:center;line-height:15px;text-shadow:1px 1px 0 #000;font-weight:normal}
+.pc .sup{height:6px;margin-top:3px;background:#1a0a26;box-shadow:inset 0 0 0 1px #000;position:relative;overflow:hidden}
+.pc .sup i{position:absolute;left:0;top:0;bottom:0;background:#8a7aa0;transition:width .2s}
+.pc .sup.ready i{background:var(--c);box-shadow:0 0 8px var(--c);animation:pulse 1s infinite}
+.pc .sup.ready{box-shadow:inset 0 0 0 1px #000,0 0 6px var(--c)}
 .pc .s{font-size:16px;color:#a898c8;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pc.down{animation:blink .5s steps(2) infinite}
 .pc.dead{filter:grayscale(1);opacity:.6}
+.pc.jp{width:auto;min-width:300px;--c:#9fff6a;flex-direction:column;align-items:stretch;gap:4px;pointer-events:auto}
+.pc.jp .jt{font-family:'Press Start 2P';font-size:9px;color:#9fff6a;display:flex;justify-content:space-between;gap:10px}
+.pc.jp .jt b{color:#ffe14a;font-weight:normal}
+.pc.jp .jc{display:flex;gap:5px}
+.pc.jp .jc button{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;background:#1a0f2a;box-shadow:inset 0 0 0 2px var(--cc);padding:2px 3px 1px;font-size:14px;line-height:1;color:var(--cc)}
+.pc.jp .jc button:hover{background:#2c1a44;transform:translateY(-2px)}
+.pc.jp .jc button.sel{background:#3a2a10;box-shadow:inset 0 0 0 2px #ffe14a}
+.pc.jp .jc button canvas{width:34px;height:32px;background:none}
+.pc.jp .jc button i{font-style:normal;color:#ffe14a;font-size:13px}
+.pc.jp .jbar{height:4px;background:#1a0f2a}.pc.jp .jbar i{display:block;height:100%;background:#9fff6a}
+#roomCode{position:absolute;top:8px;right:12px;font-size:18px;color:#9a80c0;text-shadow:2px 2px 0 #000;text-align:right;line-height:1.05;pointer-events:none}
+#roomCode b{font-family:'Press Start 2P';font-size:11px;color:#ffe14a;font-weight:normal}
 .pc.me{box-shadow:inset 0 0 0 3px var(--c),0 0 12px var(--c),0 3px 0 rgba(0,0,0,.6)}
 @keyframes blink{50%{background:rgba(120,0,20,.85)}}
 #bossbar{position:absolute;top:84px;left:50%;transform:translateX(-50%);width:min(640px,80vw);display:none;text-align:center}
@@ -169,7 +190,7 @@ input.code{font-family:'Press Start 2P',monospace;font-size:38px;width:270px;tex
 #endText{padding-top:6px;font-family:'VT323',monospace;font-size:clamp(19px,2.1vw,28px);line-height:1.1;width:min(820px,92vw);margin-top:12px;flex-shrink:0}
 #endStats{text-align:center}
 #endTable{border-collapse:collapse;margin:8px auto;font-size:22px}#endTable td,#endTable th{padding:3px 12px}#endTable th{font-family:'Press Start 2P';font-size:9px;color:#9a80c0;font-weight:normal}
-#superBox{position:absolute;bottom:122px;left:50%;transform:translateX(-50%);width:300px;text-align:center}
+#superBox{display:none;position:absolute;bottom:122px;left:50%;transform:translateX(-50%);width:300px;text-align:center}
 #superBox .sb{height:10px;background:#1a0a26;box-shadow:inset 0 0 0 1px #000,0 0 0 2px #4a2a6a;position:relative}
 #superBox .sb i{position:absolute;left:0;top:0;bottom:0;background:var(--c);transition:width .2s}
 #superBox .sl2{font-family:'Press Start 2P';font-size:8px;color:#c9b8e8;margin-bottom:4px;text-shadow:1px 1px 0 #000}
@@ -198,10 +219,63 @@ input.code{font-family:'Press Start 2P',monospace;font-size:38px;width:270px;tex
 #qte .qwho{display:flex;gap:14px;justify-content:center;font-size:20px;text-shadow:2px 2px 0 #000}
 @keyframes qpulse{to{transform:scale(1.1)}}
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-thumb{background:#5a2a8c}::-webkit-scrollbar-track{background:#12061f}
+
+/* ---------------------------- CELULAR ---------------------------- */
+#touch{display:none}
+body.touch.tshow #touch{display:block}
+.tctl{position:absolute;bottom:6vh;width:150px;height:150px;border-radius:50%;background:rgba(20,10,30,.42);box-shadow:inset 0 0 0 3px rgba(200,180,255,.35);pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none}
+#tPad{left:4vw}#tStick{right:4vw}
+#tPad::before,#tPad::after{content:'';position:absolute;background:rgba(200,180,255,.16);box-shadow:inset 0 0 0 2px rgba(200,180,255,.25)}
+#tPad::before{left:52px;top:10px;width:46px;height:130px}#tPad::after{top:52px;left:10px;height:46px;width:130px}
+#tStick::before{content:'';position:absolute;inset:34px;border-radius:50%;box-shadow:inset 0 0 0 2px rgba(255,120,140,.35)}
+#tStick.on{box-shadow:inset 0 0 0 3px #ff6a8a,0 0 16px rgba(255,80,110,.4)}
+.knob{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px;border-radius:50%;background:rgba(230,215,255,.5);box-shadow:0 0 0 3px rgba(0,0,0,.45);z-index:1;pointer-events:none}
+.tb{position:absolute;pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;width:66px;height:66px;border-radius:50%;border:0;background:rgba(20,10,30,.62);box-shadow:inset 0 0 0 3px rgba(200,180,255,.45);color:#fff;font-family:'Press Start 2P';font-size:18px;line-height:1;padding:0}
+.tb small{display:block;font-size:6px;margin-top:4px;color:#c9b8e8}
+#tRoll{right:calc(4vw + 164px);bottom:6vh}
+#tSuper{right:calc(4vw + 128px);bottom:calc(6vh + 92px);background:radial-gradient(circle,rgba(20,10,30,.8) 58%,transparent 60%),conic-gradient(var(--c,#c88cff) var(--f,0%),rgba(40,25,60,.7) 0)}
+#tSuper.ready{box-shadow:inset 0 0 0 3px var(--c),0 0 18px var(--c);animation:pulse 1s infinite}
+#tPause{display:none;top:58px;right:12px;width:44px;height:44px;font-size:12px;border-radius:8px}
+body.touch #tPause{display:block}
+#tShop{display:none;top:124px;left:50%;transform:translateX(-50%);width:auto;height:auto;border-radius:6px;padding:10px 14px;font-size:11px;box-shadow:inset 0 0 0 3px #ffe14a;color:#ffe14a}
+#tShop.on{display:block}
+#tQte{display:none;position:absolute;left:0;right:0;bottom:5vh;justify-content:center;gap:5vw;z-index:13}
+#tQte.on{display:flex}
+#tQte button{pointer-events:auto;touch-action:none;width:86px;height:86px;border:0;background:#1a1222;color:#ffe14a;font-family:'Press Start 2P';font-size:30px;box-shadow:inset 0 0 0 4px #b08a10,0 6px 0 #000}
+#tQte button:active{background:#ffe14a;color:#1b1b1f}
+body.touch #slots .sl{pointer-events:auto;touch-action:none}
+#fsAsk,#rotate{display:none;position:fixed;inset:0;z-index:80;background:rgba(5,3,10,.92);align-items:center;justify-content:center;flex-direction:column;gap:14px;pointer-events:auto;text-align:center;padding:20px}
+#fsAsk.on{display:flex}
+#fsAsk p,#rotate p{font-size:20px;color:#e8d8ff;max-width:520px}
+#rotate b{font-size:60px;color:#ffe14a;animation:rot 1.6s infinite}
+@keyframes rot{0%,30%{transform:rotate(0)}60%,100%{transform:rotate(90deg)}}
+@media (orientation:portrait){body.touch #rotate{display:flex}}
+@media (max-height:520px){
+  #scr-lobby{zoom:.55}
+  #scr-lobby .panel{max-height:176vh;overflow-y:auto}
+  #shop{zoom:.62}
+  #shop .panel{max-height:156vh;overflow-y:auto}
+  body.touch #party,body.touch #bossbar,body.touch #roundbox,body.touch #feed,body.touch #ptsbox,body.touch #roomCode{zoom:.62}
+  body.touch #slots{zoom:.7;bottom:8px}
+  body.touch #mini{width:120px;top:8px;bottom:auto;right:8px}
+  body.touch #roomCode{top:auto;bottom:10px;right:auto;left:50%;transform:translateX(-50%)}
+  body.touch #tPause{top:96px}
+  body.touch #prompt{bottom:auto;top:64%;font-size:9px}
+  body.touch #announce{zoom:.7}
+  body.touch #qte{zoom:.7;bottom:30vh}
+  body.touch .screen .panel{zoom:.72}
+  #scr-title{zoom:.52}
+  #scr-title .foot{display:none}
+  #err{zoom:.6}
+  #scr-ending{zoom:.7}
+  body.touch #dlg{zoom:.7}
+}
 </style>
 </head>
 <body>
 <canvas id="cv"></canvas>
+<div id="fsAsk"><h2 style="color:#ffe14a">APOCALIPSIS TRUERMS</h2><p>Para jugar desde el celular conviene pantalla completa y en horizontal.</p><button class="btn gold" onclick="touchFullscreen()">Pantalla completa</button><button class="btn small" onclick="this.parentNode.classList.remove('on')">Ahora no</button></div>
+<div id="rotate"><b>📱</b><p>Girá el celular para jugar en horizontal.</p></div>
 <div id="ui">
   <div id="scr-title" class="screen on">
     <canvas id="logo" width="210" height="76"></canvas>
@@ -209,7 +283,7 @@ input.code{font-family:'Press Start 2P',monospace;font-size:38px;width:270px;tex
       <button class="btn gold" data-act="host">Crear sala</button>
       <button class="btn" data-act="join">Unirse a una sala</button>
       <button class="btn" data-act="solo">Jugar solo</button>
-      <div class="row"><button class="btn small" data-act="help">Cómo jugar</button><button class="btn small" data-act="opts">Opciones</button></div>
+      <div class="row"><button class="btn small" data-act="help">Cómo jugar</button><button class="btn small" data-act="opts">Opciones</button><button class="btn small green" id="installBtn" style="display:none">Instalar juego</button></div>
     </div>
     <div id="modeBadge" class="pix" style="display:none;color:#9fff6a;font-size:11px;margin-top:10px"></div>
     <div class="foot">Ing. en Computación · FACET · UNT — v<span id="ver"></span></div>
@@ -252,7 +326,7 @@ input.code{font-family:'Press Start 2P',monospace;font-size:38px;width:270px;tex
       <tr><td>PUNTAJES</td><td><span class="kbd">TAB</span> · <span class="kbd">M</span> silencio · <span class="kbd">ESC</span> menú</td></tr>
     </table>
     <p style="max-width:820px;color:#c9b8e8;font-size:20px">Matá zombies para ganar puntos y gastalos en la tienda entre rondas (o ahorralos). Cada 5 rondas llega un profesor (a veces reforzado). Después de la ronda 25 viene una ronda bonus de Boss Rush y, por último, el nivel FINAL: un jefe gigante que rompe el mapa; cuando le bajen la vida, todos tienen que apretar juntos la secuencia de teclas 1-4 que aparece en pantalla. Si caés, tus compañeros tienen 30 s para levantarte; si morís, pueden revivir tu tumba durante esa ronda, la tienda y los primeros 10 s de la siguiente. Si nadie lo hace, volvés solo al terminar la ronda. La partida termina únicamente si caen todos. Los zombies a veces sueltan milanesas, empanadas, mate y cajas de componentes (munición). Algunas rondas traen eventos (corte de luz, mesa de examen, semana de parciales, feriado puente). Jugando solo tenés un pendrive de respaldo: si caés, mantené E para levantarte (ganás otro por cada jefe; en multijugador se compra en la tienda). En el TALLER de la tienda podés optimizar tus armas a v2.0 y v3.0, o fusionar dos armas en una nueva (por ejemplo Osciloscopio + Láser = Analizador de Espectro). Ojo con el Bedel con Puerta: de frente casi no le entra nada, rodealo o usá explosivos.</p>
-    <p style="max-width:820px;color:#9fff6a;font-size:20px">Multijugador: un jugador crea la sala y comparte el código de 4 dígitos. Todos necesitan internet (se usa para encontrarse; el juego viaja directo entre las PCs). Si a alguien no le conecta, usen el modo Servidor LAN: en la PC del host, ejecutar <b>node servidor-lan.js</b> en la carpeta del juego y que todos entren a la dirección que muestra (por ejemplo http://192.168.0.10:8080). Ese modo no usa WebRTC ni internet.</p>
+    <p style="max-width:820px;color:#9fff6a;font-size:20px">Multijugador: un jugador crea la sala y comparte el código de 4 dígitos. Todos necesitan internet (se usa para encontrarse; el juego viaja directo entre las PCs). Se puede entrar con la partida empezada usando el mismo código (aparece arriba a la derecha): elegís un personaje libre y entrás en la ronda siguiente. Si alguien se va, su personaje queda libre con su progreso.</p>
     <div id="helpSupers" style="max-width:820px;text-align:left;font-size:19px;color:#e8d8ff"></div>
     <button class="btn small" data-act="back">Volver</button>
   </div></div>
@@ -268,7 +342,11 @@ input.code{font-family:'Press Start 2P',monospace;font-size:38px;width:270px;tex
     <button class="btn small" data-act="back">Volver</button>
   </div></div>
 
-  <div id="hud">
+  <div id="hud"><div id="roomCode"></div>
+    <div id="touch"><div id="tPad" class="tctl"><div class="knob"></div></div><div id="tStick" class="tctl"><div class="knob"></div></div>
+      <button id="tRoll" class="tb">»<small>RODAR</small></button><button id="tSuper" class="tb">★<small>SÚPER</small></button></div>
+    <button id="tPause" class="tb">II</button><button id="tShop" class="tb">TIENDA ▼</button>
+    <div id="tQte"><button id="tq1" data-k="1">1</button><button id="tq2" data-k="2">2</button><button id="tq3" data-k="3">3</button><button id="tq4" data-k="4">4</button></div>
     <div id="party"></div>
     <div id="bossbar"><div class="bn"></div><div class="bb"><u></u><i></i></div></div>
     <div id="roundbox"><div class="rn"></div><div class="rz"></div><div class="rp"></div></div>
@@ -349,7 +427,7 @@ function fmt(n) { return Math.floor(n).toLocaleString('es-AR'); }
 const CHARS = [
   { id: 'ulises', name: 'Ulises', title: 'Mago de Otra Tierra', color: '#e8343a',
     perk: 'Sombras Hambrientas', perkDesc: 'Cada baja suya libera una sombra que muerde a otro zombie cercano y le cura 2 HP.' },
-  { id: 'santi', name: 'Santi', title: 'Presidente', color: '#6cc8ff',
+  { id: 'santi', name: 'Santiago', title: 'Presidente de la Bacho', color: '#6cc8ff',
     perk: 'Liderazgo', perkDesc: 'Los aliados dentro de su aura hacen +15% de daño. Revive 40% más rápido.' },
   { id: 'facundo', name: 'Facundo', title: 'El Gran Flan', color: '#2f5fe0',
     perk: 'Amortiguación de Flan', perkDesc: '+30 de vida máxima y recibe 15% menos daño.' },
@@ -362,15 +440,15 @@ const CHARS = [
 ];
 // cost: cuánto daño (en "vida base" de zombie, normalizado por ronda) hay que hacer para llenar la barra
 const SUPERS = {
-  ulises: { name: 'PLANO DE OBRA', cost: 1500, desc: 'Saca un plano de obra y manda a pelear a una cuadrilla de obreros (uno por jugador, cada uno con el arma que tenía ese jugador).', con: 'Deja el plano como parada y se toma el colectivo a Aguilares: 15 s afuera.' },
-  santi: { name: 'URNA DE LA BACHOFEN', cost: 1400, desc: 'Tira una urna: los zombies cercanos hacen fila para votar y no atacan durante 12 s.', con: 'Santi no puede disparar mientras reparte boletas.' },
-  facundo: { name: 'FLAN GIGANTE', cost: 1500, desc: 'Cae un flan gigante que atrapa a los zombies cercanos, los arrastra al centro y explota.', con: 'Facundo queda con 1 de vida.' },
-  lucas: { name: 'BOSQUE SANADOR', cost: 1900, desc: 'Crea un bosque que cura a todos los aliados cerca y levanta a los caídos.', con: 'Echa raíces: no se puede mover durante 8 s.' },
-  gabriel: { name: 'ESTAMPIDA MOTOQUERA', cost: 1200, desc: 'Una banda de motoqueros cruza el mapa (atraviesa paredes) y arrastra a los zombies hasta el borde del mapa.', con: 'Cobran el flete: perdés el 30% de tus puntos.' },
+  ulises: { name: 'PLANO DE OBRA', cost: 1500, desc: 'Saca un plano de obra y manda a pelear a una cuadrilla de obreros (uno por jugador, cada uno con el arma que tenía ese jugador).', con: 'Deja el plano como parada y se toma el colectivo a Aguilares: 20 s afuera.' },
+  santi: { name: 'URNA DE LA BACHOFEN', cost: 1400, desc: 'Tira una urna: los zombies cercanos hacen fila para votar y no atacan durante 12 s.', con: 'Santiago no puede disparar mientras reparte boletas.' },
+  facundo: { name: 'FLAN GIGANTE', cost: 1500, desc: 'Cae un flan gigante que atrapa a los zombies cercanos, los arrastra al centro y explota.', con: 'Facundo pierde el 60% de su vida.' },
+  lucas: { name: 'COMO EN VILLA CARMELA', cost: 1900, desc: 'Crea un bosque que cura a todos los aliados cerca y levanta a los caídos.', con: 'Echa raíces: no se puede mover durante 8 s.' },
+  gabriel: { name: 'VIEJOS MOTEROS', cost: 1200, desc: 'Una banda de motoqueros cruza el mapa (atraviesa paredes) y arrastra a los zombies hasta el borde del mapa.', con: 'Cobran el flete: perdés el 30% de tus puntos.' },
   koro: { name: 'BREAKPOINT', cost: 1400, desc: 'Pausa la ejecución: los zombies cercanos se congelan 6 s y reciben +50% de daño.', con: 'Después se sienta a corregir TPs: 4 s sin moverse ni disparar.' },
 };
 const SUP_SELF = 1 / 3;   // el daño que hace la propia súper carga un tercio
-const BUS_AWAY = 15;      // segundos que Ulises está en el colectivo
+const BUS_AWAY = 20;      // segundos que Ulises está en el colectivo
 const OBRA_LINES = ['¡Pasame la cuchara!', '¿Quién se llevó la carretilla?', '¡Ojo que pasa el hormigón!', 'Esto no estaba en el plano…', '¡Maestro, falta material!', 'Esto lo terminamos el lunes.', '¡Más cemento, che!', '¡Nivelá eso!', 'Después hacemos un asadito.', '¡Cuidado con la viga!', '¿Y el arquitecto dónde está?', '¡A la pala, muchachos!'];
 const OBRA_END = ['¡Terminó el turno, me voy!', 'Mañana seguimos, jefe.', 'Me voy, que se viene la lluvia.'];
 const CHAR = Object.fromEntries(CHARS.map(c => [c.id, c]));
@@ -508,6 +586,10 @@ const MAX_ROUND = 25;         // rondas numeradas
 const ROUND_RUSH = 26;        // ronda bonus: boss rush
 const ROUND_FINAL = 27;       // nivel FINAL
 const BUFF_CHANCE = .25;      // probabilidad de que un profesor salga reforzado
+// economía: lo que paga cada baja crece de forma logarítmica con la ronda (aunque haya más zombies, la plata por ronda no se dispara)
+const nBase = r => 6 + 3.2 * r + Math.pow(r, 1.35);
+function econMul(r) { r = Math.max(1, Math.min(r, MAX_ROUND)); return (1 + .8 * Math.log(r)) / Math.pow(nBase(r) / nBase(1), .85); }
+function roundBonus(r) { r = Math.max(1, Math.min(r, MAX_ROUND)); return Math.round((60 + 140 * Math.log(r)) / 10) * 10; }
 function roundLabel(r) { return r === ROUND_RUSH ? 'BONUS: BOSS RUSH' : r >= ROUND_FINAL ? 'FINAL' : `RONDA ${r}/${MAX_ROUND}`; }
 
 const DIFF = {
@@ -757,11 +839,12 @@ function tint(src, col, a = 1) {
   if (!t) { const [c, x] = mkCanvas(src.width, src.height); x.drawImage(src, 0, 0); x.globalCompositeOperation = 'source-atop'; x.globalAlpha = a; x.fillStyle = col; x.fillRect(0, 0, c.width, c.height); t = c; m.set(k, t); }
   return t;
 }
-// texto pixelado (umbral de alfa) con la fuente Press Start 2P
+// texto pixelado (umbral de alfa) con la fuente Monocraft
 function pixelText(txt, size, col, key) {
   return sprGet('pt|' + txt + size + col + (key || ''), () => {
-    const [m, mx] = mkCanvas(4, 4); mx.font = `${size}px "Press Start 2P", monospace`;
-    const w = Math.ceil(mx.measureText(txt).width) + 2, h = Math.ceil(size * 1.25) + 2;
+    const fs = Math.max(9, Math.round(size * 1.125 / 9) * 9);   // Monocraft es nítida en múltiplos de 9 px
+    const [m, mx] = mkCanvas(4, 4); mx.font = `${fs}px "MC", monospace`;
+    const w = Math.ceil(mx.measureText(txt).width) + 2, h = Math.ceil(fs * 1.36) + 2;
     const [c, x] = mkCanvas(w, h); x.font = mx.font; x.textBaseline = 'top'; x.fillStyle = col; x.fillText(txt, 1, 1);
     const im = x.getImageData(0, 0, w, h), d = im.data; const [r, g, b] = hex2rgb(col);
     for (let i = 0; i < d.length; i += 4) { if (d[i + 3] > 110) { d[i] = r; d[i + 1] = g; d[i + 2] = b; d[i + 3] = 255; } else d[i + 3] = 0; }
@@ -1606,13 +1689,12 @@ function computeFlow(targets, F = FLOW) {
 }
 
 /* =====================================================================
-   RED — tres transportes con la misma interfaz:
+   RED — dos transportes con la misma interfaz:
    1) P2P WebRTC vía PeerJS (código de 4 dígitos, necesita internet)
-   2) Servidor LAN por WebSocket (servidor-lan.js, sin WebRTC ni internet)
-   3) BroadcastChannel (pruebas en una sola PC: ?local=1)
+   2) BroadcastChannel (pruebas en una sola PC: ?local=1)
    ===================================================================== */
 const NET = { mode: null, isHost: false, peer: null, conns: new Map(), hostConn: null, myPid: 0, code: null, nextPid: 1,
-  useBC: /[?&]local=1/.test(location.search), useWS: !!window.TRUERMS_WS, ws: null, bc: null, bcId: null, bcConns: new Map(),
+  useBC: /[?&]local=1/.test(location.search), bc: null, bcId: null, bcConns: new Map(),
   onHostMsg: null, onClientMsg: null, onDrop: null, onLost: null, onStage: null, leaving: false, transport: '' };
 const PEER_CFG = { debug: 1, config: { iceServers: [
   { urls: ['stun:stun.l.google.com:19302', 'stun:stun1.l.google.com:19302', 'stun:stun2.l.google.com:19302'] },
@@ -1620,7 +1702,7 @@ const PEER_CFG = { debug: 1, config: { iceServers: [
   { urls: 'turn:openrelay.metered.ca:80', username: 'openrelayproject', credential: 'openrelayproject' },
   { urls: 'turn:openrelay.metered.ca:443?transport=tcp', username: 'openrelayproject', credential: 'openrelayproject' },
 ] } };
-const P2P_HELP = 'Probá, en este orden: 1) Chrome o Edge sin VPN y sin extensiones que bloqueen WebRTC (Brave Shields, uBlock «Prevent WebRTC», WebRTC Leak Prevent); 2) que el antivirus no tenga «protección web/firewall de red» activa; 3) usar el modo Servidor LAN (archivo servidor-lan.js) o el hotspot de un celular.';
+const P2P_HELP = 'Probá, en este orden: 1) Chrome o Edge sin VPN y sin extensiones que bloqueen WebRTC (Brave Shields, uBlock «Prevent WebRTC», WebRTC Leak Prevent); 2) que el antivirus no tenga «protección web/firewall de red» activa; 3) probar con el hotspot de un celular.';
 
 function genCode() { return String(randi(1000, 9999)); }
 function stage(t) { NET.onStage && NET.onStage(t); }
@@ -1652,10 +1734,9 @@ function netHost(code, cb) {
   netClose();
   NET.mode = 'host'; NET.isHost = true; NET.code = code; NET.myPid = 0; NET.nextPid = 1;
   if (NET.useBC) return hostBC(code, cb);
-  if (NET.useWS) return hostWS(code, cb);
   NET.transport = 'P2P (WebRTC)';
-  if (!webrtcOK()) { cb('Este navegador tiene WebRTC desactivado. Usá Chrome/Edge o el modo Servidor LAN.'); return; }
-  if (typeof Peer === 'undefined') { cb('No se pudo cargar la librería de red (PeerJS). ¿Hay internet? Si no, usá el modo Servidor LAN.'); return; }
+  if (!webrtcOK()) { cb('Este navegador tiene WebRTC desactivado. Usá Chrome o Edge.'); return; }
+  if (typeof Peer === 'undefined') { cb('No se pudo cargar la librería de red (PeerJS). ¿Hay internet?'); return; }
   stage('Contactando el servidor de emparejamiento…');
   const peer = NET.peer = new Peer(PEER_PREFIX + code, PEER_CFG);
   let done = false;
@@ -1680,33 +1761,14 @@ function hostBC(code, cb) {
   window.addEventListener('beforeunload', () => { for (const c of NET.bcConns.values()) c.close(); });
   setTimeout(() => cb(null), 50);
 }
-function wsURL(q) { return (location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host + '/ws?' + q; }
-function hostWS(code, cb) {
-  NET.transport = 'Servidor LAN';
-  stage('Conectando con el servidor LAN…');
-  const ws = NET.ws = new WebSocket(wsURL('role=host&code=' + code)); let done = false; const conns = new Map();
-  ws.onmessage = (e) => {
-    const m = JSON.parse(e.data);
-    if (m.sys === 'ok') { done = true; cb(null); return; }
-    if (m.sys === 'taken') { done = true; cb('Ese código ya está en uso. Probá otro.'); return; }
-    if (m.sys === 'join') { const id = m.id; const c = fakeConn(d => wsSend({ to: id, d }), () => wsSend({ kick: id }), id); conns.set(id, c); wireHostConn(c); return; }
-    if (m.sys === 'leave') { const c = conns.get(m.id); if (c) { conns.delete(m.id); c._fire('close'); } return; }
-    if (m.from !== undefined) { const c = conns.get(m.from); c && c._fire('data', m.d); }
-  };
-  ws.onclose = () => { if (!done) { done = true; cb('No se pudo conectar al servidor LAN.'); } else if (!NET.leaving && NET.ws === ws) uiError('Se cerró el servidor LAN.'); };
-  ws.onerror = () => { };
-}
-function wsSend(o) { if (NET.ws && NET.ws.readyState === 1) NET.ws.send(JSON.stringify(o)); }
-
 /* =============================== CLIENTE =============================== */
 function netJoin(code, cb) {
   netClose();
   NET.mode = 'client'; NET.isHost = false; NET.code = code;
   if (NET.useBC) return joinBC(code, cb);
-  if (NET.useWS) return joinWS(code, cb);
   NET.transport = 'P2P (WebRTC)';
-  if (!webrtcOK()) { cb('Tu navegador tiene WebRTC desactivado (pasa en Brave o con algunas extensiones). Usá Chrome/Edge o el modo Servidor LAN.'); return; }
-  if (typeof Peer === 'undefined') { cb('No se pudo cargar la librería de red (PeerJS). ¿Hay internet? Si no, usá el modo Servidor LAN.'); return; }
+  if (!webrtcOK()) { cb('Tu navegador tiene WebRTC desactivado (pasa en Brave o con algunas extensiones). Usá Chrome o Edge.'); return; }
+  if (typeof Peer === 'undefined') { cb('No se pudo cargar la librería de red (PeerJS). ¿Hay internet?'); return; }
   let done = false, attempt = 0, poll = null;
   const fail = (msg) => { if (done) return; done = true; clearInterval(poll); cb(msg); };
   stage('1/3 · Contactando el servidor de emparejamiento…');
@@ -1753,26 +1815,10 @@ function joinBC(code, cb) {
   window.addEventListener('beforeunload', () => conn.close());
   setTimeout(() => { if (!ok) cb('No se encontró la sala ' + code + '.'); }, 2500);
 }
-function joinWS(code, cb) {
-  NET.transport = 'Servidor LAN';
-  stage('Conectando con el servidor LAN…');
-  const ws = NET.ws = new WebSocket(wsURL('role=client&code=' + code)); let done = false;
-  const conn = fakeConn(d => { if (ws.readyState === 1) ws.send(JSON.stringify(d)); }, () => ws.close(), 'host');
-  ws.onmessage = (e) => {
-    const m = JSON.parse(e.data);
-    if (m.sys === 'noroom') { done = true; cb('No existe una sala con el código ' + code + '.'); return; }
-    if (m.sys === 'ok') { done = true; wireClientConn(conn); cb(null); return; }
-    conn._fire('data', m);
-  };
-  ws.onclose = () => { if (!done) { done = true; cb('No se pudo conectar al servidor LAN.'); } else conn._fire('close'); };
-  ws.onerror = () => { };
-}
-
 /* ============================== ENVÍOS ============================== */
 function netSendHost(msg) { if (NET.hostConn) try { NET.hostConn.send(msg); } catch (e) { } }
 function netSendTo(pid, msg) { const c = NET.conns.get(pid); if (c) try { c.send(msg); } catch (e) { } }
 function netBroadcast(msg, except) {
-  if (NET.ws && NET.isHost) { if (NET.conns.size) { const ec = except !== undefined ? NET.conns.get(except) : null; wsSend({ to: '*', ex: ec ? ec.peer : undefined, d: msg }); } return; }   // el servidor reparte
   for (const [pid, c] of NET.conns) if (pid !== except) try { c.send(msg); } catch (e) { }
 }
 function netClose() {
@@ -1781,8 +1827,13 @@ function netClose() {
   try { NET.hostConn && NET.hostConn.close(); } catch (e) { }
   try { NET.peer && NET.peer.destroy(); } catch (e) { }
   try { NET.bc && NET.bc.close(); } catch (e) { }
-  try { NET.ws && NET.ws.close(); } catch (e) { }
-  NET.conns.clear(); NET.bcConns.clear(); NET.hostConn = null; NET.peer = null; NET.bc = null; NET.ws = null; NET.mode = null; NET.isHost = false; NET.leaving = false;
+  NET.conns.clear(); NET.bcConns.clear(); NET.hostConn = null; NET.peer = null; NET.bc = null; NET.mode = null; NET.isHost = false; NET.leaving = false;
+}
+
+// identificador de esta pestaña: si se recarga o se cae la conexión, el host le devuelve su personaje y su progreso
+function myTok() {
+  try { let t = sessionStorage.getItem('truerms_tok'); if (!t) { t = Math.random().toString(36).slice(2, 12); sessionStorage.setItem('truerms_tok', t); } return t; }
+  catch (e) { return NET.tokMem || (NET.tokMem = Math.random().toString(36).slice(2, 12)); }
 }
 
 /* =====================================================================
@@ -2159,7 +2210,10 @@ function refillAmmo(frac) {
 }
 
 /* ------------------------- COMPRAS (cliente) ------------------------- */
-function shopPrice(id) {
+// más jugadores en la sala = todo más caro (+8% por jugador extra)
+function priceMul() { return 1 + .08 * (Math.max(1, G.players.size) - 1); }
+function shopPrice(id) { const b = shopPriceBase(id); return b > 0 ? Math.round(b * priceMul() / 10) * 10 : b; }
+function shopPriceBase(id) {
   const inv = L.inv; if (!inv) return 0;
   if (id.startsWith('up:')) { const wid = id.slice(3); if (!inv.guns.includes(wid)) return -1; const lv = wlv(wid); return lv >= 3 ? -1 : upgradeCost(wid, lv); }
   if (id.startsWith('fx:')) return WEAPONS[id.slice(3)].fee;
@@ -2263,6 +2317,19 @@ function applyEvent(ev) {
     case 'deny': if (ev[1] === G.meId) { sfx('deny'); uiToast('No te alcanzan los puntos'); } break;
     case 'rdy': { const p = G.players.get(ev[1]); if (p) p.ready = true; uiShopRefresh(); break; }
     case 'go': gameOver(ev[1]); break;
+    case 'pjoin': {
+      const d = ev[1]; let p = G.players.get(d.pid); if (!p) { p = newPlayer(d.pid, d.cid); G.players.set(d.pid, p); }
+      Object.assign(p, { cid: d.cid, x: d.x, y: d.y, tx: d.x, ty: d.y, pts: d.pts, kills: d.kills, revs: d.revs, downs: d.downs, dmg: d.dmg, mhp: d.mhp, hp: d.hp, st: d.st, sup: d.sup, selfRev: d.selfRev, buf: null, rx: undefined });
+      p.inv = normInv(JSON.parse(JSON.stringify(d.inv)));
+      if (d.pid === G.meId) {
+        L.inv = normInv(JSON.parse(JSON.stringify(d.inv))); L.picking = null; p.slot = 2; G.cam.x = p.x; G.cam.y = p.y;
+        uiAnnounce(d.re ? '¡VOLVISTE!' : '¡ADENTRO!', d.re ? 'Recuperaste tu personaje y tu progreso' : d.st === 3 ? `Entrás en la próxima ronda · arrancás con $${fmt(d.pts)}` : `Arrancás con $${fmt(d.pts)} para ponerte al día`, '#9fff6a', 3.2);
+        if (G.phase === 'shop') uiShopOpen();
+      }
+      uiBuildParty(); uiFeed(`${CHAR[d.cid].name} ${d.re ? 'volvió a la partida' : 'se sumó a la partida'}${d.st === 3 ? ' (entra en la próxima ronda)' : ''}.`, CHAR[d.cid].color); sfx('revive');
+      break;
+    }
+    case 'jfree': if (L.picking) { L.picking.free = ev[1]; L.picking.sent = null; UI.jpSig = ''; } break;
     case 'left': { const p = G.players.get(ev[1]); if (p) uiFeed(`${CHAR[p.cid].name} se desconectó.`, '#aaa'); G.players.delete(ev[1]); uiBuildParty(); break; }
     case 'sfx': sfx(ev[1], ev[2], ev[3]); break;
     case 'mus': musStart(ev[1]); break;
@@ -2394,7 +2461,17 @@ function applyStart(d) {
   Object.assign(L, { cd: 0, reloadT: 0, spin: 0, fired: false, rollCd: 0, kbx: 0, kby: 0, spectate: -1, shopOpen: false });
   const me = ME(); if (me) { G.cam.x = me.x; G.cam.y = me.y; me.slot = 2; }
   buildMap(); renderFloor(); voidReset(); G.stops = []; G.gmove = G.gdie = null;
+  L.picking = null;
+  if (d.late) {   // entrando con la partida empezada: el mapa como está ahora
+    const lt = d.late;
+    for (const id of lt.dp || []) killProp(id);
+    for (const i of lt.vd || []) { const k = MAP.propAt[i]; if (k) killProp(k - 1); MAP.void[i] = 1; MAP.wall[i] = 0; MAP.solid[i] = 0; MAP.propAt[i] = 0; }
+    G.voidN = (lt.vd || []).length; G.phase = lt.phase; G.phaseT = lt.pt;
+    if (lt.pick) L.picking = { t: 10, free: lt.free, ghosts: lt.ghosts || {}, bonus: lt.bonus || 0, sent: null };
+    musStart(G.phase === 'shop' ? 'shop' : G.round % 5 === 0 || G.round > MAX_ROUND ? 'boss' : 'game');
+  }
   uiEnterGame();
+  if (L.picking) uiAnnounce('¡ENTRASTE A LA PARTIDA!', 'Elegí tu personaje arriba (10 s)', '#9fff6a', 3);
 }
 function gameOver(stats) {
   G.phase = 'over'; G.stats = stats; musStart('over'); sfx('gameover');
@@ -2421,7 +2498,7 @@ const INTRO_SECS = 30;
 const INTRO_TEXT = [
   ['[FACET · UNT] Laboratorio de Electrónica — 3er piso', '#9fff6a', 300],
   ['> 23:58 · Proyecto Integrador · entrega: mañana 08:00 hs', '#e8d8ff', 250],
-  ['> Ulises, Santi, Facundo, Lucas, Gabriel y Koro no salen del laboratorio hace días.', '#e8d8ff', 250],
+  ['> Ulises, Santiago, Facundo, Lucas, Gabriel y Koro no salen del laboratorio hace días.', '#e8d8ff', 250],
   ['> Mate frío. Milanesas de la cantina. Cero horas de sueño.', '#e8d8ff', 350],
   ['$ git commit -m "ahora sí anda"', '#ffe14a', 150],
   ['  (no andaba)', '#888', 700],
@@ -2447,7 +2524,7 @@ const ENDING_TEXT = [
   ['> No hubo zombies. No hubo profesores. No hubo colectivo a Aguilares.', '#e8d8ff', 400],
   ['> 72 horas sin dormir + 14 mates + vapor de estaño = alucinación colectiva.', '#c88cff', 700],
   ['ULISES: Juro que tenía un gorro de mago. Y un plano de obra.', '#e8343a', 500, 'ulises'],
-  ['SANTI: Como presidente, declaro que esto no sale de este laboratorio.', '#6cc8ff', 500, 'santi'],
+  ['SANTIAGO: Como presidente, declaro que esto no sale de este laboratorio.', '#6cc8ff', 500, 'santi'],
   ['FACUNDO: ¿Por qué tengo olor a caramelo…?', '#2f5fe0', 500, 'facundo'],
   ['LUCAS: Lo testeé tres veces. Estaba al revés las tres veces.', '#3fbf4a', 500, 'lucas'],
   ['GABRIEL: Voy en la moto a comprar otro capacitor. ¿Alguien tiene plata?', '#ff8a1c', 500, 'gabriel'],
@@ -2617,7 +2694,7 @@ function renderEnding(dt) {
 /* =====================================================================
    HOST — simulación autoritativa: director de hordas, IA, daño, revivir
    ===================================================================== */
-const H = { bossOrder: [0, 1, 2, 3, 4], cineT: 0, nextA: 1, timers: [], nextT: 1, diff: DIFF.normal, mod: null, nextZ: 1, nextPk: 1, flowT: 0, sched: [], waveT: 0, snapT: 0, evq: new Map(), saveT: -1, total: 0, spawned: 0, hordeT: 0 };
+const H = { gone: {}, goneCid: {}, pending: new Map(), tokOf: new Map(), bossOrder: [0, 1, 2, 3, 4], cineT: 0, nextA: 1, timers: [], nextT: 1, diff: DIFF.normal, mod: null, nextZ: 1, nextPk: 1, flowT: 0, sched: [], waveT: 0, snapT: 0, evq: new Map(), saveT: -1, total: 0, spawned: 0, hordeT: 0 };
 const MAXZ = 48;
 
 function sendEv(ev, except) {
@@ -2637,16 +2714,25 @@ function hostLobbyInit() {
   G.state = 'lobby';
   NET.onHostMsg = (conn, d) => {
     if (d.t === 'hello') {
+      if (G.state === 'game' && G.phase !== 'over' && !G.win) { hostLateJoin(conn, d); return; }
       if (G.state !== 'lobby') { conn.send({ t: 'kick', why: 'La partida ya empezó. Esperá a que vuelvan a la sala.' }); setTimeout(() => conn.close(), 400); return; }
       if (G.lobby.players.length >= 6) { conn.send({ t: 'kick', why: 'La sala está llena (máximo 6 jugadores).' }); setTimeout(() => conn.close(), 400); return; }
-      const pid = NET.nextPid++; conn.pid = pid; NET.conns.set(pid, conn);
+      const pid = NET.nextPid++; conn.pid = pid; NET.conns.set(pid, conn); if (d.tok) H.tokOf.set(pid, d.tok);
       G.lobby.players.push({ pid, cid: null }); conn.send({ t: 'welcome', pid }); lobbyBroadcast(); sfx('ui'); return;
     }
     if (conn.pid !== undefined) hostHandle(conn.pid, d);
   };
   NET.onDrop = (pid) => {
     G.lobby.players = G.lobby.players.filter(p => p.pid !== pid);
-    if (G.state === 'game' && G.players.has(pid)) { fx(['left', pid]); }
+    H.pending.delete(pid);
+    if (G.state === 'game' && G.players.has(pid)) {
+      // el personaje queda libre con su progreso: el primero que entre y lo elija se lo queda
+      const p = G.players.get(pid), tok = H.tokOf.get(pid);
+      const g = { tok, cid: p.cid, pts: Math.floor(p.pts), kills: p.kills, revs: p.revs, downs: p.downs, dmg: Math.round(p.dmg || 0), inv: p.inv, mhp: p.mhp, hp: Math.ceil(p.hp), st: p.st, sup: p.sup || 0, selfRev: p.selfRev || 0, x: p.x, y: p.y };
+      H.goneCid[p.cid] = g;
+      fx(['left', pid]);
+      for (const q of H.pending.keys()) sendTo(q, ['jfree', freeChars()]);
+    }
     lobbyBroadcast();
   };
 }
@@ -2658,6 +2744,68 @@ function lobbyPick(pid, cid) {
   const lp = G.lobby.players.find(p => p.pid === pid); if (lp) lp.cid = cid;
   lobbyBroadcast();
 }
+/* ------------------- ENTRAR CON LA PARTIDA EMPEZADA ------------------- */
+const freeChars = () => CHARS.map(c => c.id).filter(id => ![...G.players.values()].some(p => p.cid === id));
+// lo que "vale" un jugador: plata en mano + lo que gastó en armas, mejoras y optimizaciones
+function invValue(inv) {
+  if (!inv) return 0; let v = 0;
+  const wv = w => { const W = WEAPONS[w]; if (!W) return 0; return W.combo ? wv(W.combo[0]) + wv(W.combo[1]) + (W.fee || 0) : (W.price || 0); };
+  v += wv(inv.melee); for (const g of inv.guns || []) if (g) v += wv(g);
+  for (const [w, l] of Object.entries(inv.lv || {})) if (WEAPONS[w]) for (let k = 1; k < l; k++) v += upgradeCost(w, k);
+  for (const [k, l] of Object.entries(inv.upg || {})) if (UPG[k]) for (let i = 0; i < l; i++) v += UPG[k].prices[i] || 0;
+  return v;
+}
+// plata de arranque para el que entra tarde: ~85% de lo que "vale" en promedio el resto
+function catchUpPts() {
+  const ps = [...G.players.values()]; if (!ps.length || G.round <= 0) return 0;
+  const avg = ps.reduce((s, p) => s + p.pts + invValue(p.inv), 0) / ps.length;
+  return Math.round(Math.max(avg * .85, 250 * G.round) / 10) * 10;
+}
+function hostLateJoin(conn, d) {
+  // si la conexión vieja de esta misma persona todavía no se cayó, la damos por caída
+  if (d.tok) for (const [op, t] of H.tokOf) if (t === d.tok && NET.conns.has(op) && G.players.has(op)) { const oc = NET.conns.get(op); NET.conns.delete(op); NET.onDrop(op); try { oc.close(); } catch (e) { } }
+  const ghost = null;   // nada se reserva: el que entra elige entre los libres (incluidos los que dejó alguien al irse)
+  const busy = G.players.size + H.pending.size;
+  if (busy >= 6 || !freeChars().length) { conn.send({ t: 'kick', why: 'La partida está llena (máximo 6 jugadores).' }); setTimeout(() => conn.close(), 400); return; }
+  const pid = NET.nextPid++; conn.pid = pid; NET.conns.set(pid, conn); if (d.tok) H.tokOf.set(pid, d.tok);
+  G.lobby.players.push({ pid, cid: ghost ? ghost.cid : null });
+  conn.send({ t: 'welcome', pid });
+  const players = [...G.players.values()].map(p => ({ pid: p.pid, cid: p.cid, x: Math.round(p.x), y: Math.round(p.y), pts: Math.floor(p.pts), kills: p.kills, mhp: p.mhp, inv: p.inv || defaultInv(p.cid) }));
+  const vd = []; for (let i = 0; i < MW * MH; i++) if (MAP.void[i]) vd.push(i);
+  const dp = MAP.props.filter(pr => pr.dead).map(pr => pr.id);
+  conn.send({ t: 'start', round: G.round, players, late: { pick: !ghost, phase: G.phase, pt: +G.phaseT.toFixed(1), vd, dp, free: freeChars(), ghosts: Object.fromEntries(Object.entries(H.goneCid).map(([c, g]) => [c, g.pts])), bonus: catchUpPts() } });
+  if (ghost) { delete H.gone[d.tok]; delete H.goneCid[ghost.cid]; lateSpawn(pid, ghost.cid, ghost); }
+  else { H.pending.set(pid, { t: 11 }); fx(['feed', 'Alguien entró a la partida y está eligiendo personaje…', '#9fff6a']); sfx('ui'); }
+}
+function lateChoose(pid, cid) {
+  if (!CHAR[cid] || [...G.players.values()].some(p => p.cid === cid)) { sendTo(pid, ['jfree', freeChars()]); return; }
+  H.pending.delete(pid);
+  const g = H.goneCid[cid]; if (g) { if (g.tok) delete H.gone[g.tok]; delete H.goneCid[cid]; }
+  lateSpawn(pid, cid, g);
+  for (const q of H.pending.keys()) sendTo(q, ['jfree', freeChars()]);
+}
+function lateTick(dt) {
+  for (const [pid, P] of H.pending) { P.t -= dt; if (P.t <= 0) { const f = freeChars(); if (f.length) lateChoose(pid, pick(f)); } }
+}
+function lateSpawn(pid, cid, g) {
+  const lp = G.lobby.players.find(o => o.pid === pid); if (lp) lp.cid = cid;
+  const mate = [...G.players.values()].find(p => p.st === 0) || [...G.players.values()][0];
+  let x = mate ? mate.x + rand(-24, 24) : 24.5 * TS, y = mate ? mate.y + rand(-14, 14) : 20.6 * TS;
+  const inWave = G.phase === 'wave';
+  let st = 0, inv, pts, mhp, hp;
+  if (g) {
+    inv = normInv(g.inv); pts = g.pts; mhp = g.mhp; hp = Math.max(g.hp, Math.round(mhp * .3));
+    if (inWave && g.st !== 0) st = 3;
+    if (inWave && g.st === 0 && !isVoidAt(g.x, g.y) && !solidAt(g.x, g.y)) { x = g.x; y = g.y; }
+  } else {
+    inv = normInv(defaultInv(cid)); pts = catchUpPts(); mhp = 100 + (cid === 'facundo' ? 30 : 0); hp = mhp;
+    if (inWave) st = 3;
+  }
+  if (isVoidAt(x, y) || solidAt(x, y)) { const s = safeSpot(x, y); x = s.x; y = s.y; }
+  fx(['pjoin', { pid, cid, x: Math.round(x), y: Math.round(y), pts, kills: g ? g.kills : 0, revs: g ? g.revs : 0, downs: g ? g.downs : 0, dmg: g ? g.dmg : 0, mhp, hp, st, inv, sup: g ? g.sup : 0, selfRev: g ? g.selfRev : 0, re: g ? 1 : 0 }]);
+  const p = G.players.get(pid); if (p) { p.late = !g; p.deadline = null; }
+}
+
 function hostStartGame() {
   const lps = G.lobby.players.filter(p => p.cid); if (!lps.length || lps.length !== G.lobby.players.length) return false;
   const save = G.lobby.useSave ? G.lobby.save : null, startRound = save ? save.round : 0;
@@ -2673,6 +2821,7 @@ function hostStartGame() {
   return true;
 }
 function hostInitGame(save) {
+  H.gone = {}; H.goneCid = {}; H.pending.clear();
   Object.assign(H, { nextZ: 1, nextPk: 1, nextT: 1, timers: [], flowT: 0, sched: [], waveT: 0, snapT: 0, saveT: -1, total: 0, spawned: 0, hordeT: 0 }); G.turrets = [];
   H.evq.clear(); G.time = 0; G.bossId = 0; for (const p of G.players.values()) p.selfRev = NET.mode === 'solo' ? 1 : 0; H.diff = DIFF[G.lobby.diff] || DIFF.normal; H.mod = null;
   H.bossOrder = save && Array.isArray(save.bossOrder) && save.bossOrder.length === 5 ? save.bossOrder : shuffle([0, 1, 2, 3, 4]);
@@ -2711,6 +2860,7 @@ function hostHandle(pid, d) {
     case 'inv': if (p) { p.inv = d.inv; hostScheduleSave(); } break;
     case 'super': hostSuper(pid, +d.x || 0, +d.y || 0); break;
     case 'qte': qteHandle(pid, d); break;
+    case 'jpick': if (H.pending.has(pid)) lateChoose(pid, String(d.c)); break;
     case 'skipintro': if (pid === G.meId && G.phase === 'pre') { if (G.phaseT > 6) G.phaseT = 6; fx(['introend']); } break;
   }
 }
@@ -2804,7 +2954,7 @@ function processSched() {
   }
 }
 function endWave() {
-  const r = G.round, bonus = 50 + 20 * Math.min(r, MAX_ROUND) + (r === ROUND_RUSH ? 1500 : 0);
+  const r = G.round, bonus = roundBonus(r) + (r === ROUND_RUSH ? 1200 : 0);
   hostClearSupers(); H.rush = null;
   if (r >= ROUND_FINAL) return;
   for (const p of G.players.values()) {
@@ -2814,7 +2964,7 @@ function endWave() {
     else if (p.st === 3) {
       const q = [...G.players.values()].find(o => o.st === 0);
       if (q) { p.x = q.x + rand(-16, 16); p.y = q.y + rand(-10, 10); }
-      p.st = 0; p.hp = Math.round(p.mhp * .5); p.deadline = null; fx(['resp', p.pid, Math.round(p.x), Math.round(p.y)]);
+      p.st = 0; p.hp = p.late ? p.mhp : Math.round(p.mhp * .5); p.late = false; p.deadline = null; fx(['resp', p.pid, Math.round(p.x), Math.round(p.y)]);
     }
   }
   fx(['feed', r === ROUND_RUSH ? `¡Sobrevivieron al Boss Rush! +${bonus} puntos para todos` : `Ronda ${r} superada: +${bonus} puntos para todos`, '#ffe14a']);
@@ -2993,7 +3143,7 @@ function spawnProf(kind, tier, o = {}) {
   return z;
 }
 // BOSS RUSH: los cinco profesores, de a uno y por tiempo (no esperan a que muera el anterior)
-const RUSH_GAP = 32;
+const RUSH_GAP = 10;
 function rushTick(dt) {
   const R = H.rush; if (!R.q.length) return;
   const alive = [...G.zombies.values()].some(z => z.type === 'boss' && !z.helper);
@@ -3216,7 +3366,7 @@ function hostDamage(z, dmg, pid, o) {
 function killZombie(z, pid, o = {}) {
   z.dead = true; G.zombies.delete(z.id);
   const p = G.players.get(pid);
-  const pts = z.clone ? 0 : Math.round((z.helper ? 300 : ZT[z.type].pts) * (1 + .05 * (G.round - 1)) * (z.gen ? .5 : 1) * (1 + .2 * hu(p, 'lic')) * (p && p.cid === 'gabriel' ? 1.15 : 1));
+  const pts = z.clone ? 0 : Math.round((z.helper ? 300 : ZT[z.type].pts) * econMul(G.round) * (z.gen ? .5 : 1) * (1 + .2 * hu(p, 'lic')) * (p && p.cid === 'gabriel' ? 1.15 : 1));
   if (p) { p.pts += pts; p.kills++; for (const q of G.players.values()) if (q !== p && q.st === 0) q.pts += Math.round(pts * .15); }
   if (p && p.cid === 'ulises' && p.st === 0) {  // pasiva: sombras hambrientas
     let nb = null, nd = 170 * 170; for (const o2 of G.zombies.values()) { const dd = d2(o2.x, o2.y, z.x, z.y); if (dd < nd) { nd = dd; nb = o2; } }
@@ -3312,7 +3462,7 @@ function hostMelee(pid, wid, ang) {
   }
 }
 function hostHurt(p, dmg) {
-  if (!p || G.phase === 'over') return;
+  if (!p || G.phase === 'over' || p.ghostT > 0) return;
   if (p.st === 0) {
     if (p.roll > 0) return;
     const fw = hu(p, 'fw'); if (fw && !(p.fwT > 0)) { p.fwT = fw >= 2 ? 7 : 10; fx(['shield', p.pid]); return; }
@@ -3393,7 +3543,8 @@ function hostSnap() {
 
 /* -------------------------- BUCLE DEL HOST -------------------------- */
 function hostUpdate(dt) {
-  const targets = [...G.players.values()].filter(p => p.st <= 1);
+  const targets = [...G.players.values()].filter(p => p.st <= 1 && !(p.ghostT > 0));
+  for (const p of G.players.values()) if (p.ghostT > 0) p.ghostT -= dt;
   if (G.phase === 'pre') { G.phaseT -= dt; if (G.phaseT <= 0) startWave(G.round + 1); }
   else if (G.phase === 'wave') {
     H.waveT += dt; processSched();
@@ -3408,6 +3559,7 @@ function hostUpdate(dt) {
   }
   H.flowT -= dt; if (H.flowT <= 0 && targets.length) { H.flowT = .3; computeFlow(targets); if ([...G.zombies.values()].some(isBig)) computeFlow(targets, FLOWB); }
   for (let i = H.timers.length - 1; i >= 0; i--) { const t = H.timers[i]; t.t -= dt; if (t.t <= 0) { H.timers.splice(i, 1); try { t.fn(); } catch (e) { console.error(e); } } }
+  lateTick(dt);
   hostTurrets(dt);
   hostSupers(dt);
   hostZombies(dt, targets);
@@ -3436,6 +3588,7 @@ function hostSuper(pid, ax, ay) {
   const p = G.players.get(pid);
   if (!p || p.st !== 0 || (p.sup || 0) < 100 || G.phase !== 'wave' || H.cineT > 0) return;
   p.sup = 0; H.cineT = 1.15;
+  if (p.cid === 'ulises') p.ghostT = 5;   // invisible para los zombies hasta subirse al colectivo
   fx(['super', pid, Math.round(ax), Math.round(ay)]);
   H.timers.push({ t: 1.1, fn: () => superExec(p, ax, ay) });
 }
@@ -3460,7 +3613,7 @@ function superExec(p, ax, ay) {
     case 'facundo': {
       const x = p.x, y = p.y; fx(['flan', Math.round(x), Math.round(y)]);
       H.timers.push({ t: .7, fn: () => { for (const z of G.zombies.values()) if (d2(z.x, z.y, x, y) < 150 * 150) { if (isBig(z)) z.stun = Math.max(z.stun, 1.6); else { z.pullT = 1.2; z.px = x; z.py = y; } } } });
-      H.timers.push({ t: 1.95, fn: () => { hostExplode(x, y, 125, 520 * (1 + .08 * Math.min(r, MAX_ROUND)), pid, 'flan', { sup: 1 }); if (p.st === 0) { p.hp = Math.min(p.hp, 1); fx(['hurt', pid, 0]); } } });
+      H.timers.push({ t: 1.95, fn: () => { hostExplode(x, y, 125, 520 * (1 + .08 * Math.min(r, MAX_ROUND)), pid, 'flan', { sup: 1 }); if (p.st === 0) { p.hp = Math.max(1, p.hp - p.mhp * .6); fx(['hurt', pid, 0]); } } });
       break;
     }
     case 'santi': {
@@ -3633,6 +3786,7 @@ function superEvent(ev) {
     case 'super': {
       const p = G.players.get(ev[1]); if (!p) return true;
       G.cine = { pid: ev[1], t: 1.25, max: 1.25, cid: p.cid }; p.sup = 0;
+      if (p.cid === 'ulises') { p.ghostT = 5; if (ev[1] === G.meId) { L.rootT = 5; L.noShoot = 5; } }
       uiCine(CHAR[p.cid].name.toUpperCase() + ' · SUPER', SUPERS[p.cid].name, CHAR[p.cid].color, 1.25);
       sfx('superfx'); for (let i = 0; i < 40; i++) { const a = rand(0, TAU); part(p.x + Math.cos(a) * 30, p.y - 12 + Math.sin(a) * 20, -Math.cos(a) * 60, -Math.sin(a) * 60, .6, CHAR[p.cid].color, 2); }
       return true;
@@ -3769,7 +3923,7 @@ function spawnGiant() {
   z.side = H.fin.order[0]; z.bs = 4; z.bt = 3.4; z.inv = 3.4; z.introT = 0; z.atkT = 6; z.quipT = 9;
   H.fin.giant = z; G.bossId = z.id; giantPlace(z);
   fx(['bintro', z.id, GIANT_V, 0, 1]);
-  H.timers.push({ t: 1.3, fn: () => breakBand(z.side, bandRect(z.side, 3)) });
+  H.timers.push({ t: 1.3, fn: () => breakBand(z.side, bandRect(z.side, 4)) });
   H.timers.push({ t: 1.35, fn: () => giantPlace(z) });
 }
 // el gigante se para del lado del vacío, pegado al borde que todavía queda
@@ -3798,23 +3952,23 @@ function giantAI(z, dt, targets) {
     case 3:                                                                   // hundiéndose para cambiar de lado
       if (z.bt <= 0) {
         z.side = z.nextSide; giantPlace(z); z.bs = 4; z.bt = 1.9; z.inv = 1.9; fx(['gside', z.id, z.side]);
-        H.timers.push({ t: 1.1, fn: () => { breakBand(z.side, bandRect(z.side, 2)); giantPlace(z); } });
+        H.timers.push({ t: 1.1, fn: () => { breakBand(z.side, bandRect(z.side, 3)); giantPlace(z); } });
       }
       break;
     case 0: {
       const want = giantWantSide(z);
       if (want !== z.side) { z.bs = 3; z.bt = 1.4; z.inv = 1.4; z.nextSide = want; fx(['gsink', z.id]); break; }
-      z.atkT -= dt; if (z.atkT <= 0) { z.atkT = rand(3.6, 5.2); giantSpecial(z, targets); }
+      z.atkT -= dt; if (z.atkT <= 0) { z.atkT = rand(2.5, 3.6); giantSpecial(z, targets); }
       if (z.bt <= 0) {
-        const rect = bandRect(z.side, 2);
-        if (rect) { z.band = rect; z.bs = 1; z.bt = 1.7; fx(['brkt', ...rect, 1.7]); fx(['sfx', 'roar', Math.round(z.x), Math.round(z.y)]); }
+        const rect = bandRect(z.side, 3);
+        if (rect) { z.band = rect; z.bs = 1; z.bt = 1.15; fx(['brkt', ...rect, 1.15]); fx(['sfx', 'roar', Math.round(z.x), Math.round(z.y)]); }
         else z.bt = 2;
       }
       break;
     }
     case 1: if (z.bt <= 0) { z.bs = 2; z.bt = .4; } break;                // brazos arriba
     case 2:                                                                  // ¡golpe!
-      if (z.bt <= 0) { breakBand(z.side, z.band); giantPlace(z); z.bs = 0; z.bt = rand(2.2, 3); }
+      if (z.bt <= 0) { breakBand(z.side, z.band); giantPlace(z); z.bs = 0; z.bt = rand(1.1, 1.7); }
       break;
   }
 }
@@ -3970,12 +4124,12 @@ function uiQte(Q) {
 /* =====================================================================
    RENDER — mundo 3/4 con orden por profundidad, iluminación nocturna
    ===================================================================== */
-const CV = document.getElementById('cv'), CX = CV.getContext('2d');
+const CV = document.getElementById('cv'); let CX = CV.getContext('2d');
 let SW = 0, SH = 0, ZOOM = 2, ZBASE = 2;
 const LS = 4; const [LCV, LCX] = mkCanvas(4, 4);
 function resize() {
   SW = CV.width = innerWidth; SH = CV.height = innerHeight;
-  ZBASE = ZOOM = clamp(Math.round(Math.min(SW / 600, SH / 350)), 2, 5);
+  ZBASE = ZOOM = clamp(Math.round(Math.min(SW / 600, SH / 350)), TOUCH.on ? 1 : 2, 5);
   LCV.width = Math.ceil(SW / LS) + 1; LCV.height = Math.ceil(SH / LS) + 1;
   CX.imageSmoothingEnabled = false;
 }
@@ -3983,7 +4137,14 @@ const toSX = x => (x - VIEW.x) * ZOOM, toSY = y => (y - VIEW.y) * ZOOM;
 const VIEW = { x: 0, y: 0, w: 0, h: 0 };
 
 function updateCam(dt) {
-  const me = ME(); if (!me) return;
+  const me = ME();
+  if (!me) {   // todavía eligiendo personaje: se mira al resto
+    const sp = [...G.players.values()].find(p => p.st === 0) || [...G.players.values()][0];
+    if (sp) { const k = 1 - Math.exp(-dt * 4); G.cam.x += ((sp.rx !== undefined ? sp.rx : sp.x) - G.cam.x) * k; G.cam.y += ((sp.ry !== undefined ? sp.ry : sp.y) - 14 - G.cam.y) * k; }
+    ZOOM = ZBASE * G.zf; const vw = SW / ZOOM, vh = SH / ZOOM;
+    G.cam.x = clamp(G.cam.x, vw / 2 - 40, WW - vw / 2 + 40); G.cam.y = clamp(G.cam.y, vh / 2 - 60, WH - vh / 2 + 40); AU.lx = G.cam.x; AU.ly = G.cam.y;
+    return;
+  }
   let t = me;
   if (me.st >= 2) {
     let sp = G.players.get(L.spectate);
@@ -4469,15 +4630,11 @@ function drawFxo(o) {
   } else if (o.k === 'flan') {
     const t = o.t, fall = clamp(t / .55, 0, 1), shrink = t < .7 ? 1 : t < 1.9 ? 1 - .75 * ((t - .7) / 1.2) : 0;
     if (shrink <= 0) return;
-    const R = 118 * shrink, h = R * .6, yo = (1 - fall) * -380, x = o.x, y = o.y;
+    const R = 118 * shrink, yo = (1 - fall) * -380, x = o.x, y = o.y;
     shadow(x, y, R * (.4 + .6 * fall), R * .55 * (.4 + .6 * fall), .35);
-    CX.save(); CX.translate(x, y + yo); const sq = t > .55 && t < .75 ? 1 + .15 * Math.sin((t - .55) * 30) : 1; CX.scale(1 / sq, sq);
-    CX.fillStyle = '#d9a33a'; CX.beginPath(); CX.ellipse(0, 0, R, R * .55, 0, 0, TAU); CX.fill();
-    CX.fillStyle = '#f4c64f'; CX.fillRect(-R * .92, -h, R * 1.84, h); CX.beginPath(); CX.ellipse(0, -h, R * .92, R * .5, 0, 0, TAU); CX.fill();
-    CX.fillStyle = '#9c4f1c'; CX.beginPath(); CX.ellipse(0, -h, R * .8, R * .42, 0, 0, TAU); CX.fill(); CX.fillStyle = '#c7742c'; CX.beginPath(); CX.ellipse(-R * .2, -h - R * .1, R * .3, R * .1, 0, 0, TAU); CX.fill();
-    for (let i = 0; i < 9; i++) { const dx = -R * .75 + i * R * .19; CX.fillStyle = '#9c4f1c'; CX.fillRect(dx, -h + R * .3, R * .06, R * (.08 + (i % 3) * .07)); }
-    CX.fillStyle = '#fbe08a'; CX.fillRect(-R * .8, -h + R * .2, R * .08, h * .7);
-    if (t > .55) { CX.fillStyle = '#1b1b2a'; CX.fillRect(-R * .25, -h * .5, R * .08, R * .1); CX.fillRect(R * .17, -h * .5, R * .08, R * .1); CX.fillStyle = '#b9802c'; CX.fillRect(-R * .1, -h * .25, R * .2, R * .04); }
+    const sq = t > .55 && t < .75 ? 1 + .15 * Math.sin((t - .55) * 30) : 1, img = flanSprite(t > .55), k = R * 2 / 44;
+    CX.save(); CX.translate(Math.round(x), Math.round(y + yo)); CX.scale(k / sq, k * sq); CX.imageSmoothingEnabled = false;
+    CX.drawImage(img, -22, -30);
     CX.restore();
   } else if (o.k === 'bp') {
     const f = o.t / o.max; CX.strokeStyle = `rgba(255,60,60,${1 - f})`; CX.lineWidth = 3; CX.strokeRect(o.x - 400 * f, o.y - 260 * f, 800 * f, 520 * f);
@@ -4523,6 +4680,22 @@ function zombieIcons(z, x, y) {
   const fl = z.fl | 0;
   if (fl & 256) { CX.fillStyle = '#f1ede4'; CX.fillRect(x + 4, y - 34, 6, 8); CX.fillStyle = '#6cc8ff'; CX.fillRect(x + 5, y - 32, 4, 1); }
   if (fl & 512) { CX.fillStyle = '#ff3b3b'; CX.beginPath(); CX.arc(x, y - 40, 4, 0, TAU); CX.fill(); CX.fillStyle = '#fff'; CX.fillRect(x - 2, y - 42, 1, 4); CX.fillRect(x + 1, y - 42, 1, 4); }
+}
+
+// flan gigante en pixel art (44x36), con cara cuando ya cayó
+const _flanC = {};
+function flanSprite(face) {
+  if (_flanC[face]) return _flanC[face];
+  const [c, x] = mkCanvas(44, 36), p = (a, b, w, h, col) => { x.fillStyle = col; x.fillRect(a, b, w, h); };
+  for (let yy = 0; yy < 8; yy++) { const w = Math.round(22 * Math.sqrt(1 - ((yy - 3.5) / 4.2) ** 2)); p(22 - w, 28 + yy, w * 2, 1, yy < 2 ? '#e8eef2' : '#b9c4cc'); }
+  for (let yy = 0; yy < 22; yy++) { const w = Math.round(13 + yy * .32); p(22 - w, 8 + yy, w * 2, 1, '#f4c64f'); p(22 - w, 8 + yy, 2, 1, '#fbe08a'); p(22 + w - 3, 8 + yy, 3, 1, '#d9a33a'); }
+  p(10, 28, 24, 2, '#d9a33a');
+  for (let yy = 0; yy < 6; yy++) { const w = Math.round(13 - Math.abs(yy - 2.5) * 1.2 + 1); p(22 - w, 4 + yy, w * 2, 1, yy < 2 ? '#9c4f1c' : '#6e3410'); }
+  p(14, 5, 6, 1, '#c7742c'); p(16, 4, 3, 1, '#e09a50');
+  [[10, 3], [14, 6], [19, 2], [24, 5], [29, 4], [33, 2]].forEach(([dx, h]) => { p(dx, 10, 2, h, '#6e3410'); p(dx, 10 + h, 2, 1, '#9c4f1c'); });
+  p(12, 13, 2, 10, '#fbe08a');
+  if (face) { p(16, 17, 3, 3, '#1b1b2a'); p(26, 17, 3, 3, '#1b1b2a'); p(17, 17, 1, 1, '#fff'); p(27, 17, 1, 1, '#fff'); p(19, 23, 6, 1, '#b9802c'); p(13, 21, 2, 1, '#f2a07a'); p(30, 21, 2, 1, '#f2a07a'); }
+  return (_flanC[face] = outlineCanvas(c, '#2a1406'));
 }
 
 /* =====================================================================
@@ -4579,7 +4752,20 @@ function drawBreakTele() {
 }
 
 /* ------------------------- EL CAPACITOR AL REVÉS ------------------------- */
+// el gigante se dibuja a 1/4 de resolución y se escala sin suavizado: queda pixel art "de verdad"
+const GPX = 4, GW = 1000, GH = 1000; let _gC = null;
 function drawGiant(z) {
+  if (!_gC) _gC = mkCanvas(GW / GPX, GH / GPX);
+  const [gc, gx] = _gC, ox = Math.round(z.x - GW / 2), oy = Math.round(z.y - 600), real = CX;
+  gx.setTransform(1, 0, 0, 1, 0, 0); gx.clearRect(0, 0, gc.width, gc.height);
+  gx.setTransform(1 / GPX, 0, 0, 1 / GPX, -ox / GPX, -oy / GPX);
+  CX = gx; try { drawGiantRaw(z); } finally { CX = real; }
+  const a = gx.getImageData(0, 0, gc.width, gc.height), d = a.data;   // sin semitransparencias: bordes duros
+  for (let i = 3; i < d.length; i += 4) if (d[i] && d[i] < 255) d[i] = d[i] > 90 ? 255 : 0;
+  gx.putImageData(a, 0, 0);
+  real.imageSmoothingEnabled = false; real.drawImage(gc, ox, oy, GW, GH);
+}
+function drawGiantRaw(z) {
   const side = z.ax | 0, bs = z.bs | 0, t = G.time;
   let x = z.x, y = z.y, alpha = 1;
   // emerger / hundirse (hacia el lado del vacío)
@@ -4742,7 +4928,7 @@ function uiShowLobby() {
   $('#codeWrap').style.display = solo ? 'none' : '';
   $('#lobbyCode').textContent = lb.code || NET.code || '----';
   const n = lb.players.length;
-  const lan = NET.useWS && NET.lanInfo ? `<br><span style="color:#ffe9a0">Los demás entran desde el navegador a: <b>${NET.lanInfo.ips.map(ip => `http://${ip}:${NET.lanInfo.port}`).join(' · ')}</b></span>` : '';
+  const lan = '';
   $('#lobbyStatus').innerHTML = (solo ? 'Modo solitario. Elegí a tu soldado y a sobrevivir.' :
     NET.isHost ? `Pasales este código a tus compañeros (Unirse a una sala).<br>Jugadores: <b style="color:#9fff6a">${n}/6</b>` : `Conectado a la sala. Elegí personaje; el host arranca la partida.<br>Jugadores: <b style="color:#9fff6a">${n}/6</b>`) + (solo ? '' : `<br><span style="color:#8a70b0;font-size:18px">Conexión: ${NET.transport}</span>`) + (NET.isHost && !solo ? lan : '');
   const grid = $('#charGrid');
@@ -4803,9 +4989,37 @@ function uiBuildParty() {
     const cv = document.createElement('canvas'); cv.width = 28; cv.height = 26; cv.getContext('2d').drawImage(portrait(p.cid), 0, 0);
     d.appendChild(cv);
     const r = document.createElement('div'); r.className = 'r';
-    r.innerHTML = `<div class="n">${ch.name}<span></span></div><div class="bar"><i></i><b></b></div><div class="s"></div>`;
+    r.innerHTML = `<div class="n">${ch.name}<span></span></div><div class="bar"><i></i><b></b></div><div class="sup" title="Súper"><i></i></div><div class="s"></div>`;
     d.appendChild(r); box.appendChild(d);
-    UI.party.set(p.pid, { d, pts: r.querySelector('.n span'), bar: r.querySelector('.bar i'), bt: r.querySelector('.bar b'), s: r.querySelector('.s') });
+    UI.party.set(p.pid, { d, pts: r.querySelector('.n span'), bar: r.querySelector('.bar i'), bt: r.querySelector('.bar b'), s: r.querySelector('.s'), sup: r.querySelector('.sup'), supi: r.querySelector('.sup i') });
+  }
+  if (L.picking) { box.appendChild(jpEl()); UI.jpSig = ''; }
+}
+// selector de personaje para el que entra con la partida empezada (ocupa el lugar de su barra de vida)
+function jpEl() {
+  let e = $('#jpick'); if (e) return e;
+  e = document.createElement('div'); e.id = 'jpick'; e.className = 'pc jp';
+  e.innerHTML = '<div class="jt"><span>ELEGÍ TU PERSONAJE</span><b></b></div><div class="jc"></div><div class="jbar"><i></i></div>';
+  return e;
+}
+function uiJoinPick(dt) {
+  const P = L.picking, e = $('#jpick');
+  if (!P) { if (e) e.remove(); return; }
+  if (!e || !e.isConnected) { $('#party').appendChild(jpEl()); UI.jpSig = ''; }
+  P.t = Math.max(0, P.t - dt);
+  const el = $('#jpick'); el.querySelector('.jt b').textContent = P.sent ? 'ENTRANDO…' : Math.ceil(P.t) + ' s';
+  el.querySelector('.jbar i').style.width = (P.t / 10 * 100) + '%';
+  const sig = P.free.join(',') + '|' + P.sent;
+  if (UI.jpSig === sig) return; UI.jpSig = sig;
+  const jc = el.querySelector('.jc'); jc.innerHTML = '';
+  for (const cid of P.free) {
+    const c = CHAR[cid], b = document.createElement('button'); b.style.setProperty('--cc', c.color); if (P.sent === cid) b.className = 'sel';
+    const g = P.ghosts[cid];
+    b.title = `${c.name} · ${c.title}` + (g !== undefined ? ` (alguien lo dejó con $${fmt(g)}: te quedás con su progreso)` : ` · arrancás con $${fmt(P.bonus)}`);
+    const cv = document.createElement('canvas'); cv.width = 28; cv.height = 26; cv.getContext('2d').drawImage(portrait(cid), 0, 0); b.appendChild(cv);
+    b.insertAdjacentHTML('beforeend', g !== undefined ? `<i>↺$${fmt(g)}</i>` : `<span>${c.name.slice(0, 6)}</span>`);
+    b.onclick = () => { if (P.sent) return; P.sent = cid; UI.jpSig = ''; sfx('ui'); if (NET.isHost) lateChoose(G.meId, cid); else netSendHost({ t: 'jpick', c: cid }); };
+    jc.appendChild(b);
   }
 }
 function slotIcon(id) { return weaponIcon(id, 2); }
@@ -4813,19 +5027,22 @@ function uiHud(dt) {
   if (UI.annT > 0) { UI.annT -= dt; if (UI.annT <= 0) $('#announce').classList.remove('on'); }
   if (UI.toastT > 0) { UI.toastT -= dt; if (UI.toastT <= 0) $('#toast').classList.remove('on'); }
   if (G.state !== 'game') return;
+  uiJoinPick(dt);
   UI.hudT -= dt; if (UI.hudT > 0) return; UI.hudT = .08;
+  const rc = $('#roomCode'); if (NET.mode !== 'solo' && NET.code) { const t = `<b>SALA ${NET.code}</b><br>${[...G.players.values()].length}/6 · se puede entrar`; if (rc.innerHTML !== t) rc.innerHTML = t; } else rc.innerHTML = '';
   const me = ME();
   // grupo
   if (UI.party.size !== G.players.size) uiBuildParty();
   for (const p of G.players.values()) {
     const e = UI.party.get(p.pid); if (!e) continue;
     e.pts.textContent = '$' + fmt(p.pts);
+    { const sv = clamp(p.sup || 0, 0, 100); e.supi.style.width = sv + '%'; e.sup.classList.toggle('ready', sv >= 100); }
     e.d.classList.toggle('down', p.st === 1); e.d.classList.toggle('dead', p.st >= 2);
     if (p.st === 0) { e.bar.style.width = (100 * p.hp / p.mhp) + '%'; e.bar.style.background = p.hp / p.mhp < .3 ? '#ff4a4a' : ''; e.bt.textContent = Math.ceil(p.hp) + '/' + p.mhp; e.s.textContent = `☠ ${p.kills}  ✚ ${p.revs}`; }
     else if (p.st === 1) { e.bar.style.width = p.bleed + '%'; e.bar.style.background = '#ff4a4a'; e.bt.textContent = 'CAÍDO'; e.s.textContent = p.rev > 0 ? `levantando ${Math.round(p.rev * 100)}%` : `sangrando ${Math.ceil(p.bleed * .3)}s`; }
     else if (p.st === 2) { e.bar.style.width = '0%'; e.bt.textContent = 'MUERTO'; e.s.textContent = p.rev > 0 ? `reviviendo ${Math.round(p.rev * 100)}%` : 'tumba (E)'; }
     else if (p.st === 4) { e.bar.style.width = '0%'; e.bt.textContent = 'EN EL COLECTIVO'; e.s.textContent = p.awayT > 0 ? `vuelve en ${Math.ceil(p.awayT)} s` : 'volviendo…'; }
-    else { e.bar.style.width = '0%'; e.bt.textContent = 'AFUERA'; e.s.textContent = 'vuelve al final'; }
+    else { e.bar.style.width = '0%'; e.bt.textContent = 'AFUERA'; e.s.textContent = 'entra en la próxima ronda'; }
   }
   // ronda
   const rb = $('#roundbox');
@@ -5014,6 +5231,86 @@ function saveOpts() { try { localStorage.setItem(OPTS_KEY, JSON.stringify(AU.vol
 function loadOpts() { try { const o = JSON.parse(localStorage.getItem(OPTS_KEY)); if (o) Object.assign(AU.vol, o); } catch (e) { } }
 
 /* =====================================================================
+   CELULAR — detección, pantalla completa horizontal y controles táctiles:
+   cruceta (moverse) · joystick (apuntar = disparar) · rodar · súper.
+   Las armas se cambian tocando sus ranuras; para revivir se mantiene
+   tocado al compañero caído. En la tienda los controles desaparecen.
+   ===================================================================== */
+const TOUCH = {
+  on: (matchMedia('(pointer: coarse)').matches && navigator.maxTouchPoints > 0) || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || /[?&]touch=1/.test(location.search),
+  ios: /iPhone|iPad|iPod/i.test(navigator.userAgent),
+  pad: null, stick: null, rev: null, aim: 0, aimMag: 0, aiming: false, padV: [0, 0],
+};
+function touchFullscreen() {
+  const el = document.documentElement, rq = el.requestFullscreen || el.webkitRequestFullscreen;
+  const lock = () => { try { screen.orientation && screen.orientation.lock && screen.orientation.lock('landscape').catch(() => { }); } catch (e) { } };
+  if (rq) { try { const r = rq.call(el, { navigationUI: 'hide' }); if (r && r.then) r.then(lock).catch(() => { }); else lock(); } catch (e) { } }
+  else uiToast('En iPhone: girá el celular y usá "Agregar a inicio" para jugar a pantalla completa');
+  $('#fsAsk').classList.remove('on');
+}
+function touchSetup() {
+  if (!TOUCH.on) return;
+  document.body.classList.add('touch');
+  $('#fsAsk').classList.add('on');
+  const pad = $('#tPad'), stk = $('#tStick');
+  const vec = (el, e) => { const r = el.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2, R = r.width / 2; let dx = (e.clientX - cx) / R, dy = (e.clientY - cy) / R; const l = Math.hypot(dx, dy); if (l > 1) { dx /= l; dy /= l; } return [dx, dy, Math.min(1, l)]; };
+  const knob = (el, v) => { const k = el.querySelector('.knob'); if (k) k.style.transform = `translate(${v[0] * 38}px,${v[1] * 38}px)`; };
+  // cruceta: 8 direcciones
+  const padMove = (e) => {
+    const [dx, dy, l] = vec(pad, e); TOUCH.padV = [dx, dy]; knob(pad, [dx, dy]);
+    const on = l > .28, a = Math.atan2(dy, dx), oct = Math.round(a / (Math.PI / 4));
+    const dirs = { 0: [1, 0], 1: [1, 1], 2: [0, 1], 3: [-1, 1], 4: [-1, 0], '-4': [-1, 0], '-3': [-1, -1], '-2': [0, -1], '-1': [1, -1] }[oct] || [0, 0];
+    IN.keys.KeyD = on && dirs[0] > 0; IN.keys.KeyA = on && dirs[0] < 0; IN.keys.KeyS = on && dirs[1] > 0; IN.keys.KeyW = on && dirs[1] < 0;
+    for (const [k, c] of [['KeyW', 'u'], ['KeyS', 'd'], ['KeyA', 'l'], ['KeyD', 'r']]) pad.classList.toggle(c, !!IN.keys[k]);
+  };
+  const padEnd = () => { TOUCH.pad = null; IN.keys.KeyW = IN.keys.KeyA = IN.keys.KeyS = IN.keys.KeyD = false; knob(pad, [0, 0]); pad.className = 'tctl'; };
+  pad.addEventListener('pointerdown', e => { e.preventDefault(); auInit(); TOUCH.pad = e.pointerId; try { pad.setPointerCapture(e.pointerId); } catch (_) { } padMove(e); });
+  pad.addEventListener('pointermove', e => { if (e.pointerId === TOUCH.pad) padMove(e); });
+  pad.addEventListener('pointerup', padEnd); pad.addEventListener('pointercancel', padEnd);
+  // joystick: apuntar; mientras está inclinado, dispara
+  const stMove = (e) => { const [dx, dy, l] = vec(stk, e); knob(stk, [dx, dy]); TOUCH.aimMag = l; if (l > .22) { TOUCH.aim = Math.atan2(dy, dx); TOUCH.aiming = true; } IN.down = l > .35 && !(ME() && ME().slot === 4); };
+  const stEnd = () => { const me = ME(); if (TOUCH.stick !== null && me && me.slot === 4 && TOUCH.aiming) IN.click = true; TOUCH.stick = null; IN.down = false; knob(stk, [0, 0]); stk.classList.remove('on'); setTimeout(() => { if (TOUCH.stick === null) TOUCH.aiming = false; }, 120); };
+  stk.addEventListener('pointerdown', e => { e.preventDefault(); auInit(); TOUCH.stick = e.pointerId; try { stk.setPointerCapture(e.pointerId); } catch (_) { } stk.classList.add('on'); stMove(e); });
+  stk.addEventListener('pointermove', e => { if (e.pointerId === TOUCH.stick) stMove(e); });
+  stk.addEventListener('pointerup', stEnd); stk.addEventListener('pointercancel', stEnd);
+  // botones
+  const btn = (id, fn) => $(id).addEventListener('pointerdown', e => { e.preventDefault(); e.stopPropagation(); auInit(); fn(); });
+  btn('#tRoll', () => { IN.space = true; });
+  btn('#tSuper', () => { IN.tap.KeyQ = true; });
+  btn('#tPause', () => dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape', key: 'Escape' })));
+  btn('#tShop', () => { if (G.phase === 'shop') uiShopOpen(); });
+  for (const b of $$('#tQte button')) btn('#' + b.id, () => { IN.tap['Digit' + b.dataset.k] = true; });
+  // ranuras de armas: se tocan directamente
+  $('#slots').addEventListener('pointerdown', e => { const d = e.target.closest('.sl'); if (!d) return; e.preventDefault(); const i = [...$('#slots').children].indexOf(d); if (i >= 0) selectSlot(i + 1); });
+  // mantener tocado a un compañero caído (o a uno mismo con el pendrive) = revivir
+  CV.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'mouse' || G.state !== 'game') return;
+    e.preventDefault();
+    const wx = VIEW.x + e.clientX / ZOOM, wy = VIEW.y + e.clientY / ZOOM, me = ME(); if (!me) return;
+    for (const p of G.players.values()) if ((p.st === 1 || p.st === 2) && d2(p.x, p.y - 8, wx, wy) < 46 * 46) { TOUCH.rev = e.pointerId; IN.keys.KeyE = true; return; }
+  });
+  const revEnd = e => { if (e.pointerId === TOUCH.rev) { TOUCH.rev = null; IN.keys.KeyE = false; } };
+  addEventListener('pointerup', revEnd); addEventListener('pointercancel', revEnd);
+}
+// cada cuadro: la mira sale del ángulo del joystick, y se acomoda qué controles se ven
+function touchTick() {
+  if (!TOUCH.on) return;
+  const me = ME(), ingame = G.state === 'game' && !!me && UI.story !== 'intro' && UI.cur !== 'pause';
+  const show = ingame && !L.shopOpen && !G.qte && !G.win;
+  document.body.classList.toggle('tshow', show);
+  $('#tQte').classList.toggle('on', ingame && !!G.qte);
+  $('#tShop').classList.toggle('on', ingame && G.phase === 'shop' && !L.shopOpen);
+  if (show) {
+    const ready = (me.sup || 0) >= 100; $('#tSuper').classList.toggle('ready', ready); $('#tSuper').style.setProperty('--c', CHAR[me.cid].color);
+    $('#tSuper').style.setProperty('--f', (me.sup || 0) + '%');
+  }
+  if (me && TOUCH.aiming) {
+    const d = me.slot === 4 ? 60 + TOUCH.aimMag * 240 : 170, px = me.rx !== undefined ? me.rx : me.x, py = (me.ry !== undefined ? me.ry : me.y) - 12;
+    IN.mx = (px + Math.cos(TOUCH.aim) * d - VIEW.x) * ZOOM; IN.my = (py + Math.sin(TOUCH.aim) * d - VIEW.y) * ZOOM;
+  } else if (me && TOUCH.on) { IN.mx = SW / 2 + Math.cos(TOUCH.aim) * 40; IN.my = SH / 2 + Math.sin(TOUCH.aim) * 40; }
+}
+
+/* =====================================================================
    PRINCIPAL — entrada, acciones de menú, bucle
    ===================================================================== */
 function drawLogo() {
@@ -5097,7 +5394,7 @@ function act(a) {
         $('#joinBtn').disabled = false;
         if (err) { $('#joinMsg').style.color = ''; $('#joinMsg').textContent = err; netClose(); return; }
         NET.onClientMsg = onClientMsg; NET.onLost = onLost;
-        G.lobby = { code, players: [], save: null }; NET.code = code; netSendHost({ t: 'hello' });
+        G.lobby = { code, players: [], save: null }; NET.code = code; netSendHost({ t: 'hello', tok: myTok() });
         $('#joinMsg').textContent = '¡Conectado!';
       });
       break;
@@ -5168,6 +5465,11 @@ function setupInput() {
   const bind = (id, k, also) => $(id).addEventListener('input', e => { AU.vol[k] = e.target.value / 100; auApplyVol(); saveOpts(); if (also) $(also).value = e.target.value; });
   bind('#vMaster', 'master', '#vMaster2'); bind('#vMaster2', 'master', '#vMaster'); bind('#vSfx', 'sfx'); bind('#vMusic', 'music', '#vMusic2'); bind('#vMusic2', 'music', '#vMusic');
   addEventListener('pointerdown', () => { auInit(); if (!MUS.mode) musStart('menu'); }, { once: true });
+  touchSetup();
+  // botón "Instalar juego" (Chrome/Edge en PC y Android): crea el acceso directo con el ícono
+  addEventListener('beforeinstallprompt', e => { e.preventDefault(); UI.inst = e; $('#installBtn').style.display = ''; });
+  $('#installBtn').addEventListener('click', () => { if (UI.inst) { UI.inst.prompt(); UI.inst.userChoice.finally(() => { UI.inst = null; $('#installBtn').style.display = 'none'; }); } });
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => { });
 }
 
 /* -------------------------------- BUCLE -------------------------------- */
@@ -5205,6 +5507,7 @@ function step(dt) {
 function frame(t) {
   const dt = Math.min(.05, Math.max(0, (t - LAST) / 1000)); LAST = t;
   step(dt);
+  touchTick();
   IN.wx = VIEW.x + IN.mx / ZOOM; IN.wy = VIEW.y + IN.my / ZOOM;
   CX.setTransform(1, 0, 0, 1, 0, 0); CX.fillStyle = '#07040c'; CX.fillRect(0, 0, SW, SH);
   if (G.state === 'game') { renderWorld(); renderScreen(); }
@@ -5224,7 +5527,7 @@ function setupBackgroundTick() {
 async function init() {
   $('#ver').textContent = VERSION;
   loadOpts(); resize(); setupInput();
-  try { await Promise.race([document.fonts.load('16px "Press Start 2P"'), sleep(2500)]); } catch (e) { }
+  try { await Promise.race([document.fonts.load('18px "MC"'), sleep(2500)]); } catch (e) { }
   buildMap(); renderFloor(); renderMini();
   drawLogo();
   uiShow('title');
@@ -5236,7 +5539,6 @@ async function init() {
   });
   requestAnimationFrame(t => { LAST = t; frame(t); });
   if (NET.useBC) uiError('Modo prueba local (?local=1): las salas sólo funcionan entre pestañas de este navegador.');
-  if (NET.useWS) { $('#modeBadge').textContent = 'MODO SERVIDOR LAN'; $('#modeBadge').style.display = ''; fetch('/info').then(r => r.json()).then(i => { NET.lanInfo = i; }).catch(() => { }); }
 }
 init();
 

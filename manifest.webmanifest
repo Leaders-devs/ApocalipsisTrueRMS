@@ -1,0 +1,15 @@
+{
+  "name": "Apocalipsis TrueRMS",
+  "short_name": "TrueRMS",
+  "description": "Shooter cooperativo de zombies en pixel art. Hasta 6 jugadores.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#2a0f3e",
+  "theme_color": "#2a0f3e",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
