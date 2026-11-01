@@ -245,6 +245,7 @@ body.touch #tPause{display:block}
 #tQte button{pointer-events:auto;touch-action:none;width:86px;height:86px;border:0;background:#1a1222;color:#ffe14a;font-family:'Press Start 2P';font-size:30px;box-shadow:inset 0 0 0 4px #b08a10,0 6px 0 #000}
 #tQte button:active{background:#ffe14a;color:#1b1b1f}
 body.touch #slots .sl{pointer-events:auto;touch-action:none}
+body.touch.tqte #slots{z-index:14;zoom:1;bottom:5vh}body.touch.tqte #slots .sl{box-shadow:inset 0 0 0 3px #ffe14a,0 0 14px #ffe14a;animation:pulse .6s infinite}
 #fsAsk,#rotate{display:none;position:fixed;inset:0;z-index:80;background:rgba(5,3,10,.92);align-items:center;justify-content:center;flex-direction:column;gap:14px;pointer-events:auto;text-align:center;padding:20px}
 #fsAsk.on{display:flex}
 #fsAsk p,#rotate p{font-size:20px;color:#e8d8ff;max-width:520px}
@@ -266,7 +267,7 @@ body.touch #slots .sl{pointer-events:auto;touch-action:none}
   body.touch #tPause{top:96px}
   body.touch #prompt{bottom:auto;top:64%;font-size:9px}
   body.touch #announce{zoom:.7}
-  body.touch #qte{zoom:.7;bottom:30vh}
+  body.touch #qte{zoom:.7;bottom:62vh}
   body.touch .screen .panel{zoom:.72}
   #scr-title{zoom:.52}
   #scr-title .foot{display:none}
@@ -4120,7 +4121,7 @@ function uiQte(Q) {
   }
   el.classList.toggle('bad', Q.bad > 0); el.classList.toggle('hit', Q.hit > 0); el.classList.toggle('wait', Q.t < 0);
   el.querySelector('.qbar i').style.width = (Q.t < 0 ? 100 : clamp(1 - Q.t / Q.dur, 0, 1) * 100) + '%';
-  el.querySelector('.qt').textContent = Q.t < 0 ? 'PREPÁRENSE…' : Q.mine === Q.step ? 'ESPERANDO AL RESTO…' : `¡APRETÁ ${Q.seq[Q.step]}!`;
+  el.querySelector('.qt').textContent = Q.t < 0 ? 'PREPÁRENSE…' : Q.mine === Q.step ? 'ESPERANDO AL RESTO…' : TOUCH.on ? `¡TOCÁ EL ARMA ${Q.seq[Q.step]}!` : `¡APRETÁ ${Q.seq[Q.step]}!`;
   const who = el.querySelector('.qwho'), al = [...G.players.values()].filter(p => p.st === 0);
   who.innerHTML = al.map(p => `<span style="color:${CHAR[p.cid].color}">${Q.done.includes(p.pid) ? '✔' : '…'} ${CHAR[p.cid].name}</span>`).join('');
 }
@@ -4167,7 +4168,9 @@ function updateCam(dt) {
   if (G.cine || (G.bint && G.bint.main) || G.qte || G.gdie) { const k2 = 1 - Math.exp(-dt * 9); G.cam.x += (fx_ - G.cam.x) * k2; G.cam.y += (fy - G.cam.y) * k2; }
   if (t === me && me.st <= 1 && !G.cine && !G.qte && G.round >= ROUND_FINAL) { const gz = G.zombies.get(G.bossId); if (gz && gz.variant === GIANT_V) { const dx = gz.x - fx_, dy = gz.y - 60 - fy, l = Math.hypot(dx, dy) || 1, k = Math.min(330, l * .45); fx_ += dx / l * k; fy += dy / l * k; } }
   if (t === me && me.st <= 1 && !G.cine) { fx_ += clamp((IN.mx - SW / 2) / ZOOM, -200, 200) * .22; fy += clamp((IN.my - SH / 2) / ZOOM, -150, 150) * .22; }
+  if (!isFinite(fx_) || !isFinite(fy)) { fx_ = t.x; fy = t.y - 14; }
   const k = 1 - Math.exp(-dt * 7); G.cam.x += (fx_ - G.cam.x) * k; G.cam.y += (fy - G.cam.y) * k;
+  if (!isFinite(G.cam.x) || !isFinite(G.cam.y)) { G.cam.x = isFinite(me.x) ? me.x : WW / 2; G.cam.y = isFinite(me.y) ? me.y : WH / 2; }
   const vw = SW / ZOOM, vh = SH / ZOOM;
   G.cam.x = clamp(G.cam.x, vw / 2 - 40, WW - vw / 2 + 40); G.cam.y = clamp(G.cam.y, vh / 2 - 60, WH - vh / 2 + 40);
   if (vw > WW + 80) G.cam.x = WW / 2; if (vh > WH + 100) G.cam.y = WH / 2;
@@ -5257,7 +5260,7 @@ function touchSetup() {
   document.body.classList.add('touch');
   $('#fsAsk').classList.add('on');
   const pad = $('#tPad'), stk = $('#tStick');
-  const vec = (el, e) => { const r = el.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2, R = r.width / 2; let dx = (e.clientX - cx) / R, dy = (e.clientY - cy) / R; const l = Math.hypot(dx, dy); if (l > 1) { dx /= l; dy /= l; } return [dx, dy, Math.min(1, l)]; };
+  const vec = (el, e) => { const r = el.getBoundingClientRect(); if (!(r.width > 0) || !isFinite(e.clientX) || !isFinite(e.clientY)) return [0, 0, 0]; const cx = r.left + r.width / 2, cy = r.top + r.height / 2, R = r.width / 2; let dx = (e.clientX - cx) / R, dy = (e.clientY - cy) / R; const l = Math.hypot(dx, dy); if (l > 1) { dx /= l; dy /= l; } return [dx, dy, Math.min(1, l)]; };
   const knob = (el, v) => { const k = el.querySelector('.knob'); if (k) k.style.transform = `translate(${v[0] * 38}px,${v[1] * 38}px)`; };
   // cruceta: 8 direcciones
   const padMove = (e) => {
@@ -5285,7 +5288,7 @@ function touchSetup() {
   btn('#tShop', () => { if (G.phase === 'shop') uiShopOpen(); });
   for (const b of $$('#tQte button')) btn('#' + b.id, () => { IN.tap['Digit' + b.dataset.k] = true; });
   // ranuras de armas: se tocan directamente
-  $('#slots').addEventListener('pointerdown', e => { const d = e.target.closest('.sl'); if (!d) return; e.preventDefault(); const i = [...$('#slots').children].indexOf(d); if (i >= 0) selectSlot(i + 1); });
+  $('#slots').addEventListener('pointerdown', e => { const d = e.target.closest('.sl'); if (!d) return; e.preventDefault(); const i = [...$('#slots').children].indexOf(d); if (i < 0) return; if (G.qte) IN.tap['Digit' + (i + 1)] = true; else selectSlot(i + 1); });
   // mantener tocado a un compañero caído (o a uno mismo con el pendrive) = revivir
   CV.addEventListener('pointerdown', e => {
     if (e.pointerType === 'mouse' || G.state !== 'game') return;
@@ -5302,7 +5305,8 @@ function touchTick() {
   const me = ME(), ingame = G.state === 'game' && !!me && UI.story !== 'intro' && UI.cur !== 'pause';
   const show = ingame && !L.shopOpen && !G.qte && !G.win;
   document.body.classList.toggle('tshow', show);
-  $('#tQte').classList.toggle('on', ingame && !!G.qte);
+  $('#tQte').classList.remove('on');
+  document.body.classList.toggle('tqte', ingame && !!G.qte);
   $('#tShop').classList.toggle('on', ingame && G.phase === 'shop' && !L.shopOpen);
   if (show) {
     const ready = (me.sup || 0) >= 100; $('#tSuper').classList.toggle('ready', ready); $('#tSuper').style.setProperty('--c', CHAR[me.cid].color);
@@ -5312,7 +5316,9 @@ function touchTick() {
     // la mira queda siempre a la misma distancia corta (no salta al soltar el joystick, así la cámara no tiembla);
     // con granadas la distancia la marca cuánto inclinás el joystick
     const d = me.slot === 4 && TOUCH.aiming ? 60 + TOUCH.aimMag * 240 : 85, px = me.rx !== undefined ? me.rx : me.x, py = (me.ry !== undefined ? me.ry : me.y) - 12;
-    IN.mx = (px + Math.cos(TOUCH.aim) * d - VIEW.x) * ZOOM; IN.my = (py + Math.sin(TOUCH.aim) * d - VIEW.y) * ZOOM;
+    if (!isFinite(TOUCH.aim)) TOUCH.aim = 0; if (!isFinite(TOUCH.aimMag)) TOUCH.aimMag = 0;
+    const nx = (px + Math.cos(TOUCH.aim) * d - VIEW.x) * ZOOM, ny = (py + Math.sin(TOUCH.aim) * d - VIEW.y) * ZOOM;
+    if (isFinite(nx) && isFinite(ny)) { IN.mx = nx; IN.my = ny; } else { IN.mx = SW / 2; IN.my = SH / 2; }
   }
 }
 
@@ -5535,6 +5541,7 @@ function frameBody(t) {
   const dt = Math.min(.05, Math.max(0, (t - LAST) / 1000)); LAST = t;
   step(dt);
   touchTick();
+  if (!isFinite(IN.mx) || !isFinite(IN.my)) { IN.mx = SW / 2; IN.my = SH / 2; }
   IN.wx = VIEW.x + IN.mx / ZOOM; IN.wy = VIEW.y + IN.my / ZOOM;
   CX.setTransform(1, 0, 0, 1, 0, 0); CX.fillStyle = '#07040c'; CX.fillRect(0, 0, SW, SH);
   if (G.state === 'game') { renderWorld(); renderScreen(); }
