@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ApocalipsisTrueRMS
+GenericName=Apocalipsis TrueRMS
+Comment=Shooter cooperativo de zombies en pixel art
+Exec=xdg-open https://leaders-devs.github.io/ApocalipsisTrueRMS/
+Icon=/home/koro/apocalipsis/ApocalipsisTrueRMS/icon-512.png
+Terminal=false
+Categories=Game;
+Keywords=ApocalipsisTrueRMS;Apocalipsis;TrueRMS;
+Comment[es_AR]=
