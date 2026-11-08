@@ -34,7 +34,7 @@ Abrí `index.html` y elegí **Jugar solo**.
 |---|---|
 | `WASD` | Moverse |
 | Mouse | Apuntar / disparar |
-| `1` `2` `3` `4` | Melee · Arma 1 · Arma 2 · Granadas |
+| `1` `2` `3` `4` | Melee · Arma 1 · Arma 2 · Arrojable |
 | `R` | Recargar |
 | `E` (mantener) | Revivir compañero |
 | `Q` | Súper (se carga haciendo daño; la barra está debajo de tu vida) |
@@ -61,7 +61,8 @@ Abrí `index.html` y elegí **Jugar solo**.
 - **5 profesores jefe** en orden aleatorio cada partida, con presentación y ataques propios; cualquiera puede salir **reforzado**. Los acompañan ayudantes de cátedra.
 - **Ronda bonus: Boss Rush** — los cinco profesores llegan de a uno, por tiempo: hay que bajarlos antes de que se junten.
 - **Nivel FINAL** — un jefe gigante que rompe el mapa desde los bordes hasta dejar solo el patio de la fuente, y se remata con un **Quick Time Event cooperativo**.
-- **Tienda entre rondas** (15 s): armas temáticas, mejoras, niveles de arma, **combinaciones** y granadas.
+- **Tienda entre rondas** (15 s): armas temáticas, mejoras, niveles de arma, **fusiones** (desde la ronda 10; te dejan con una sola arma) y arrojables (un tipo a la vez: explosivo, señuelo, torreta, cura, veneno o muro).
+- **4 dificultades:** Ingresante, Cursante, Recursante (armas −20%) y **Libre** (hardcore: un golpe y caés, el doble de zombies).
 - **Revivir** compañeros durante la ronda o en los primeros 10 s de la siguiente.
 - **Partida guardada** automática al terminar cada ronda (y exportable).
 - Intro, cinemáticas de jefes y un final que no te esperás.
@@ -76,6 +77,8 @@ icon-192.png          ícono
 icon-512.png          ícono grande
 poster.png            este póster
 LICENSE               licencia (todos los derechos reservados)
+servidor/worker.js    servidor de salas para Cloudflare (opcional)
+servidor/wrangler.toml configuración del servidor
 OFL-Monocraft.txt     licencia de la fuente
 ```
 
@@ -85,7 +88,18 @@ OFL-Monocraft.txt     licencia de la fuente
 2. **Settings → Pages → Source:** `Deploy from a branch`, rama `main`, carpeta `/ (root)`.
 3. Queda en **https://leaders-devs.github.io/ApocalipsisTrueRMS/**
 
-> La conexión entre jugadores usa WebRTC (PeerJS) y necesita internet.
+> La conexión entre jugadores usa WebRTC (PeerJS) y necesita internet. Si a alguno no le conecta, activen el servidor de salas (abajo).
+
+## Servidor de salas (opcional, recomendado)
+
+La conexión directa entre navegadores falla en algunas redes (Wi-Fi que aísla a los equipos, datos móviles, ciertos antivirus). El servidor de salas reenvía los mensajes por Cloudflare y conecta siempre. No hace falta comprar un dominio: alcanza con una cuenta gratis de Cloudflare.
+
+1. Instalá Node.js y abrí una terminal en la carpeta `servidor/`.
+2. `npx wrangler login` (abre el navegador para entrar a Cloudflare).
+3. `npx wrangler deploy` → al final muestra una dirección tipo `https://truerms-salas.<tu-cuenta>.workers.dev`.
+4. En `index.html` buscá `const RELAY_DEFAULT = '';` y poné adentro esa dirección cambiando `https` por `wss`. Subí el `index.html` de nuevo.
+
+Para probarlo antes de editar nada: abrí el juego con `?relay=wss://truerms-salas.<tu-cuenta>.workers.dev` al final del link (todos los jugadores). Con el servidor activo el juego lo usa primero; si no responde, vuelve solo a la conexión directa.
 
 ## Licencia
 
