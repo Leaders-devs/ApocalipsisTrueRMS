@@ -62,7 +62,7 @@ Abrí `index.html` y elegí **Jugar solo**.
 - **Ronda bonus: Boss Rush** — los cinco profesores llegan de a uno, por tiempo: hay que bajarlos antes de que se junten.
 - **Nivel FINAL** — un jefe gigante que rompe el mapa desde los bordes hasta dejar solo el patio de la fuente, y se remata con un **Quick Time Event cooperativo**.
 - **Tienda entre rondas** (15 s): armas temáticas, mejoras, niveles de arma, **fusiones** (desde la ronda 10; te dejan con una sola arma) y arrojables (un tipo a la vez: explosivo, señuelo, torreta, cura, veneno o muro).
-- **4 dificultades:** Ingresante, Cursante, Recursante (armas −20%) y **Libre** (hardcore: un golpe y caés, el doble de zombies).
+- **4 dificultades:** Ingresante (más fácil y +20% de plata), Cursante (normal), Recursante (zombies más duros, armas −20%, tienda +15%, menos comida) y **Libre** (hardcore: un golpe y caés, el doble de zombies, tienda +25%). Pasá el cursor sobre cada una en el lobby para ver el detalle.
 - **Revivir** compañeros durante la ronda o en los primeros 10 s de la siguiente.
 - **Partida guardada** automática al terminar cada ronda (y exportable).
 - Intro, cinemáticas de jefes y un final que no te esperás.
