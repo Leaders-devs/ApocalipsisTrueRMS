@@ -339,6 +339,8 @@ body.touch.tqte #slots{z-index:14;zoom:1;bottom:5vh}body.touch.tqte #slots .sl{b
       <tr><td>PUNTAJES</td><td><span class="kbd">TAB</span> · <span class="kbd">M</span> silencio · <span class="kbd">ESC</span> pausa/menú (jugando solo, la pausa congela la ronda pero NO el tiempo de la tienda: esos 15 s siguen corriendo)</td></tr>
     </table>
     <p style="max-width:820px;color:#c9b8e8;font-size:20px">Matá zombies para ganar puntos y gastalos en la tienda entre rondas (o ahorralos). Cada 5 rondas llega un profesor (a veces reforzado). Después de la ronda 25 viene una ronda bonus de Boss Rush y, por último, el nivel FINAL: un jefe gigante que rompe el mapa; cuando le bajen la vida, todos tienen que apretar juntos la secuencia de teclas 1-4 que aparece en pantalla. Si caés, tus compañeros tienen 30 s para levantarte; si morís, pueden revivir tu tumba durante esa ronda, la tienda y los primeros 10 s de la siguiente. Si nadie lo hace, volvés solo al terminar la ronda. La partida termina únicamente si caen todos. Los zombies a veces sueltan milanesas, empanadas, mate y cajas de componentes (munición). Algunas rondas traen eventos (corte de luz, mesa de examen, semana de parciales, feriado puente). Jugando solo tenés un pendrive de respaldo: si caés, mantené E para levantarte (ganás otro por cada jefe; en multijugador se compra en la tienda). En el TALLER de la tienda podés optimizar tus armas a v2.0 y v3.0, o fusionar dos armas en una nueva (por ejemplo Osciloscopio + Láser = Analizador de Espectro). Ojo con el Bedel con Puerta: de frente casi no le entra nada, rodealo o usá explosivos.</p>
+    <p style="max-width:820px;color:#c9b8e8;font-size:20px"><b style="color:#ffe14a">Avisos visuales:</b> cuando tu súper está cargada, tu personaje se prende con un aura de su color: ya podés apretar <span class="kbd">Q</span>. Si te pegan, suena un golpe (y el celular vibra). Con menos de la mitad de vida la pantalla se va quedando en blanco y negro y se escucha tu corazón, cada vez más rápido.</p>
+    <p style="max-width:820px;color:#c9b8e8;font-size:20px"><b style="color:#ff4a6a">Nivel FINAL:</b> el Capacitor al Revés rompe el piso desde los bordes, pero sólo un poco por cada etapa de vida que le sacan. Cuando le queda el último 20%, rompe también el patio central, anillo por anillo. Si no lo terminan a tiempo, se quedan sin piso, caen al vacío… y ven el final malo (la partida guardada les permite reintentarlo).</p>
     <p style="max-width:820px;color:#c9b8e8;font-size:20px"><b style="color:#ffe14a">Tienda:</b> si comprás un arma nueva va al hueco libre; si tenés las dos ocupadas, te pregunta cuál reemplazar. La munición se consigue de los zombies o volviendo a comprar un arma que ya tenés (sale 35%). Las <b>FUSIONES</b> se habilitan desde la ronda 10 y ocupan los dos huecos (el otro queda bloqueado). <b style="color:#ffe14a">Arrojables:</b> llevás un solo tipo a la vez (hasta 10, +2 por cargador); comprar otro tipo reemplaza al que tenías. Capacitor explota · Celular atrae zombies · Torreta dispara sola · Fuente cura en zona · Pila envenena y frena · Rack de Servidores levanta una pared por 9 s.</p>
     <p style="max-width:820px;color:#c9b8e8;font-size:20px"><b style="color:#ffe14a">Dificultades</b> (comparadas con Cursante, la normal): <b>Ingresante</b> zombies −25% vida y −35% daño, 20% menos zombies, +20% de plata y más comida. <b>Recursante</b> zombies +30% vida y +35% daño, 20% más zombies, armas compradas −20% de daño, tienda +15% y menos comida. <b>Libre</b> como Recursante pero un golpe y caés, el doble de zombies, tienda +25% y la mitad de comida. En el lobby, pasá el cursor sobre cada una para ver el detalle.</p>
     <p style="max-width:820px;color:#c9b8e8;font-size:20px"><b style="color:#ffe14a">Mapa:</b> al norte la Facultad de Arquitectura, al sur la Av. Independencia, al este la Av. Alem y al oeste Ciencias Económicas. Los avisos de horda te dicen por dónde entran.</p>
@@ -398,7 +400,7 @@ body.touch.tqte #slots{z-index:14;zoom:1;bottom:5vh}body.touch.tqte #slots .sl{b
   <div id="dlg"><div class="dn"></div><div class="dt"></div></div>
   <div id="fade"></div>
   <div id="scr-ending" class="screen"><div id="endTop"><canvas id="endCanvas" width="320" height="180"></canvas></div><div id="endText"></div>
-    <div id="endStats" style="display:none"><h2 style="color:#ffe14a">¡GANARON! (SI SE PUEDE LLAMAR ASÍ)</h2><table id="endTable"></table>
+    <div id="endStats" style="display:none"><h2 id="endTitle" style="color:#ffe14a">¡GANARON! (SI SE PUEDE LLAMAR ASÍ)</h2><table id="endTable"></table><p id="endNote" style="color:#a898c8;font-size:20px"></p>
     <div class="row"><button class="btn small" data-act="menu">Menú principal</button><button class="btn gold" id="btnEndAgain" data-act="again">Volver a la sala</button></div></div></div>
   <div id="scr-pause" class="screen"><div class="panel center">
     <h2>PAUSA</h2>
@@ -752,6 +754,8 @@ const SND = {
   irq: (t, d) => { for (let i = 0; i < 6; i++) osc('square', i % 2 ? 1500 : 900, 0, t + i * .07, .06, .12, d); },
   glitch: (t, d) => { for (let i = 0; i < 7; i++) osc('square', rand(100, 3000), rand(100, 3000), t + i * .03, .03, .1, d); nz(t, .2, .2, d, 'highpass', 2000); },
   laugh: (t, d) => { for (let i = 0; i < 4; i++) { osc('sawtooth', 260 - i * 10, 200, t + i * .14, .1, .16, lp(d, 1400), .01); } },
+  heart: (t, d) => { const f = lp(d, 180); osc('sine', 70, 38, t, .13, .9, f, .008); osc('sine', 62, 34, t + .2, .12, .6, f, .008); },
+  ouch: (t, d) => { osc('sine', 160, 48, t, .16, .55, d, .002); nz(t, .08, .35, d, 'lowpass', 900, 200); },
   block: (t, d) => { osc('square', 2200, 1200, t, .05, .12, d); nz(t, .05, .2, d, 'highpass', 3000); },
 };
 
@@ -2438,7 +2442,7 @@ function applyEvent(ev) {
       break;
     }
     case 'ammo': if (ev[1] === G.meId && L.inv) refillAmmo(.35); break;
-    case 'hurt': { const p = G.players.get(ev[1]); if (p) p.flash = .12; if (ev[1] === G.meId) { G.hurtFlash = Math.min(.6, G.hurtFlash + .25 + ev[2] / 80); G.shake = Math.max(G.shake, 3); sfx('hurt'); } break; }
+    case 'hurt': { const p = G.players.get(ev[1]); if (p) p.flash = .12; if (ev[1] === G.meId) { G.hurtFlash = Math.min(.6, G.hurtFlash + .25 + ev[2] / 80); G.shake = Math.max(G.shake, 3 + Math.min(5, ev[2] / 8)); sfx('hurt'); sfx('ouch', undefined, undefined, .6 + Math.min(.6, ev[2] / 40)); if (navigator.vibrate) try { navigator.vibrate(ev[2] >= 20 ? 110 : 55); } catch (e) { } } break; }
     case 'down': { const p = G.players.get(ev[1]); if (!p) break; p.st = 1; if (ev[1] !== G.meId) uiFeed(`${CHAR[p.cid].name} cayó. ¡Levantalo con E!`, CHAR[p.cid].color); sfx('down', p.x, p.y); if (ev[1] === G.meId) { L.reloadT = 0; uiAnnounce('¡CAÍSTE!', 'Seguí disparando con el multímetro hasta que te levanten', '#ff4a4a'); } break; }
     case 'dead': { const p = G.players.get(ev[1]); if (!p) break; p.st = 2; if (ev[1] !== G.meId) uiFeed(`${CHAR[p.cid].name} murió. Su tumba se puede revivir (mantener E).`, '#ff6b6b'); if (ev[1] === G.meId) uiAnnounce('MORISTE', 'Un compañero puede revivir tu tumba', '#ff4a4a'); break; }
     case 'rev': { const p = G.players.get(ev[1]), r = G.players.get(ev[2]); if (!p) break; p.st = 0; sfx('revive', p.x, p.y); uiFeed(`${r ? CHAR[r.cid].name : '?'} levantó a ${CHAR[p.cid].name} (+100)`, '#6aff6a'); for (let i = 0; i < 20; i++) part(p.x, p.y - 10, rand(-60, 60), rand(-120, -20), .7, CHAR[p.cid].color, 2, 100); break; }
@@ -2761,6 +2765,7 @@ function storyEvent(ev) {
     case 'glitch': for (const [x, y] of [[ev[1], ev[2]], [ev[3], ev[4]]]) for (let k = 0; k < 18; k++) part(x + rand(-20, 20), y - rand(0, 60), rand(-40, 40), rand(-40, 40), .5, pick(['#5ae0ff', '#ffffff', '#ff5ad1', '#0a1a2a']), randi(2, 4)); sfx('glitch', ev[3], ev[4]); return true;
     case 'laugh': { const z = G.zombies.get(ev[1]); if (z) for (let i = 0; i < 3; i++) ftext(z.x + rand(-30, 30), z.y - 80 - i * 12, pick(['¡JA!', 'JAJA', 'JE JE']), '#ff9a3c', 1.2); sfx('laugh', z && z.x, z && z.y); return true; }
     case 'win': winStart(ev[1]); return true;
+    case 'bad': badStart(ev[1]); return true;
   }
   return false;
 }
@@ -2774,6 +2779,31 @@ function storyTick(dt) {
 }
 
 /* --------------------------------- FINAL --------------------------------- */
+// final malo: el capacitor rompió todo el piso y cayeron al vacío
+const ENDING_BAD = [
+  ['> Caen.', '#888', 500],
+  ['> Y caen.', '#888', 500],
+  ['> Y siguen cayendo…', '#888', 700],
+  ['> *PLAF*', '#ff4a6a', 600],
+  ['> Ulises se despierta en el piso del laboratorio. Se cayó de la silla.', '#e8d8ff', 400],
+  ['> Todos están tirados en el suelo, entre cables y vasos de mate.', '#e8d8ff', 300],
+  ['> La placa ya no echa humo: está carbonizada. El capacitor de 1000 µF ganó.', '#ff9a3c', 600],
+  ['> El reloj marca las 08:47. En el pizarrón alguien escribió: ENTREGA CERRADA.', '#ff4a6a', 700],
+  ['ULISES: Soñé que nos tragaba el piso de la facultad.', '#e8343a', 500, 'ulises'],
+  ['SANTIAGO: Como presidente, declaro que fue culpa del capacitor.', '#6cc8ff', 500, 'santi'],
+  ['FACUNDO: Me duele todo… como si me hubiera caído de un tercer piso.', '#2f5fe0', 500, 'facundo'],
+  ['LUCAS: Lo testeé. No pasó el test.', '#3fbf4a', 500, 'lucas'],
+  ['GABRIEL: Y la moto no arranca. Obvio.', '#ff8a1c', 500, 'gabriel'],
+  ['KORO: El año que viene… leemos el datasheet.', '#d4d9df', 600, 'koro'],
+  ['> Estado de la materia: RECURSANTE.', '#ff4a6a', 800],
+  ['TODOS: …nos vemos el año que viene.', '#888', 700, '*'],
+];
+function badStart(stats) {
+  G.phase = 'over'; G.win = { t: 0, stats, stage: 0, bad: true }; uiShopClose(); G.qte = null; uiQte(null);
+  uiAnnounce('¡SE QUEDARON SIN PISO!', 'El Capacitor al Revés rompió todo…', '#ff4a6a', 5);
+  G.shake = 22; sfx('crash'); sfx('roar'); musStart('over');
+  for (const p of G.players.values()) for (let i = 0; i < 16; i++) part(p.x + rand(-12, 12), p.y - rand(0, 20), rand(-50, 50), rand(-60, 20), .9, pick(['#7a3fb0', '#3a1050', '#1a0b24', CHAR[p.cid].color]), 3, 260);
+}
 function winStart(stats) {
   G.phase = 'over'; G.win = { t: 0, stats, stage: 0 }; uiShopClose();
   uiAnnounce('¡SOBREVIVIERON!', 'La FACET está a salvo… ¿o no?', '#6aff6a', 6.5);
@@ -2782,13 +2812,16 @@ function winStart(stats) {
 function winTick(dt) {
   const W = G.win; W.t += dt;
   if (W.stage === 0) {
+    if (W.bad) { if (W.t > 5.5) { W.stage = 1; $('#fade').classList.add('on'); } return; }
     if (Math.random() < dt * 6) { const p = pick([...G.players.values()]); if (p) { const x = p.x + rand(-120, 120), y = p.y - rand(60, 160), c = pick(['#ff4a6a', '#ffe14a', '#6aff6a', '#6cc8ff', '#c88cff']); for (let i = 0; i < 30; i++) { const a = rand(0, TAU), s = rand(40, 160); part(x, y, Math.cos(a) * s, Math.sin(a) * s, rand(.6, 1.2), c, 2, 60); } flash(x, y, 120, c, .3); sfx('pickup', x, y, .5); } }
     if (Math.random() < .6) for (const p of G.players.values()) part(p.x + rand(-60, 60), p.y - 90, rand(-20, 20), rand(30, 80), 1.5, pick(['#ff4a6a', '#ffe14a', '#6aff6a', '#6cc8ff', '#c88cff', '#ffffff']), 2, 40);
     if (W.t > 6.5) { W.stage = 1; $('#fade').classList.add('on'); musStart('over'); }
-  } else if (W.stage === 1 && W.t > 9) {
+  } else if (W.stage === 1 && W.t > (W.bad ? 7.5 : 9)) {
     W.stage = 2; G.state = 'ending'; $('#hud').classList.remove('on'); document.body.classList.remove('ingame');
     uiShow('ending'); $('#fade').classList.remove('on'); $('#endStats').style.display = 'none';
-    typeStart($('#endText'), ENDING_TEXT, () => { const st = W.stats; $('#endStats').style.display = '';
+    $('#endTitle').textContent = W.bad ? 'FINAL MALO: SE QUEDARON SIN PISO' : '¡GANARON! (SI SE PUEDE LLAMAR ASÍ)'; $('#endTitle').style.color = W.bad ? '#ff4a6a' : '#ffe14a';
+    $('#endNote').textContent = W.bad ? (W.stats.saveRound > 0 ? `Partida guardada al terminar la ronda ${W.stats.saveRound}: desde la sala pueden reintentar el final.` : '') : '';
+    typeStart($('#endText'), W.bad ? ENDING_BAD : ENDING_TEXT, () => { const st = W.stats; $('#endStats').style.display = '';
       $('#endTable').innerHTML = statsTable(st.players);
       const b = $('#btnEndAgain'); b.style.display = NET.isHost ? '' : 'none'; const sc = $('#scr-ending'); setTimeout(() => sc.scrollTo({ top: sc.scrollHeight, behavior: 'smooth' }), 50); });
     endingSceneInit();
@@ -2804,7 +2837,9 @@ function renderEnding(dt) {
   for (let i = 0; i < 20; i++) for (let j = 0; j < 7; j++) { x.fillStyle = (i + j) % 2 ? '#2a2d33' : '#25282d'; x.fillRect(i * 16, 108 + j * 16, 16, 16); }
   x.fillStyle = '#3a2f3f'; x.fillRect(0, 0, W, 60); x.fillStyle = '#4a3f52'; x.fillRect(0, 56, W, 4);
   x.fillStyle = '#1f4a33'; x.fillRect(110, 12, 100, 34); x.fillStyle = '#6b4a2f'; x.fillRect(108, 10, 104, 2);
-  const tb = pixelText('ENTREGA 08:00', 8, '#e8f0e8'); x.drawImage(tb, 116, 18); const tb2 = pixelText('V = I·R', 8, '#e8f0e8'); x.drawImage(tb2, 130, 32);
+  const BAD = !!(G.win && G.win.bad), LINES = BAD ? ENDING_BAD : ENDING_TEXT;
+  if (BAD) { const tb = pixelText('ENTREGA', 8, '#ff8a8a'); x.drawImage(tb, 132, 16); const tb2 = pixelText('CERRADA', 8, '#ff8a8a'); x.drawImage(tb2, 132, 30); x.fillStyle = '#e8f0e8'; x.fillRect(118, 26, 84, 1); const ck = pixelText('08:47', 8, '#ff4a6a'); x.drawImage(ck, 268, 14); }
+  else { const tb = pixelText('ENTREGA 08:00', 8, '#e8f0e8'); x.drawImage(tb, 116, 18); const tb2 = pixelText('V = I·R', 8, '#e8f0e8'); x.drawImage(tb2, 130, 32); }
   const fl = .8 + .2 * Math.sin(ENDS.t * 9) * Math.sin(ENDS.t * 3.1);
   const bench = (bx, by) => { x.fillStyle = '#9aa1a8'; x.fillRect(bx, by, 96, 10); x.fillStyle = '#d9dde2'; x.fillRect(bx, by - 2, 96, 3); x.fillStyle = '#555b62'; x.fillRect(bx + 4, by + 10, 4, 22); x.fillRect(bx + 88, by + 10, 4, 22); };
   bench(20, 92); bench(204, 92);
@@ -2812,18 +2847,18 @@ function renderEnding(dt) {
   const sl = ['ulises', 'santi', 'facundo', 'lucas', 'gabriel', 'koro'];
   // quién ya se despertó (según el texto que se va escribiendo)
   const awake = new Set(['ulises']); let talking = null;
-  if (TYPE.lines === ENDING_TEXT) ENDING_TEXT.forEach((l, k) => { if (!l[3]) return; if (k < TYPE.li || TYPE.done || (k === TYPE.li && TYPE.ci > 0)) { if (l[3] === '*') sl.forEach(c => awake.add(c)); else awake.add(l[3]); } if (k === TYPE.li && TYPE.ci > 0 && !TYPE.done) talking = l[3]; });
+  if (TYPE.lines === LINES) LINES.forEach((l, k) => { if (!l[3]) return; if (k < TYPE.li || TYPE.done || (k === TYPE.li && TYPE.ci > 0)) { if (l[3] === '*') sl.forEach(c => awake.add(c)); else awake.add(l[3]); } if (k === TYPE.li && TYPE.ci > 0 && !TYPE.done) talking = l[3]; });
   else sl.forEach(c => awake.add(c));
   sl.forEach((cid, i) => {
     const up = awake.has(cid), tk = talking === cid || talking === '*', bx = i < 3 ? 40 + i * 26 : 214 + (i - 3) * 26;
-    const s = playerSprite(cid, up ? 0 : i % 2, 0), by = up ? 92 - (tk ? Math.abs(Math.sin(ENDS.t * 9)) * 3 : 0) : 98;
-    x.save(); x.translate(bx, by); if (!up) x.rotate(i % 2 ? .25 : -.25); x.drawImage(s.c, -14, -30); x.restore();
+    const s = playerSprite(cid, up ? 0 : i % 2, 0), by = up ? 92 - (tk ? Math.abs(Math.sin(ENDS.t * 9)) * 3 : 0) : BAD ? 150 : 98;
+    x.save(); x.translate(bx, by); if (!up) x.rotate(BAD ? (i % 2 ? 1.5 : -1.5) : i % 2 ? .25 : -.25); x.drawImage(s.c, -14, -30); x.restore();
     if (!up && Math.floor(ENDS.t * 1.2 + i) % 3 === 0) { const z = pixelText('z', 8, '#aaa'); x.drawImage(z, bx + 6, 52 - (ENDS.t * 6 + i * 5) % 12); }
     if (tk) { x.fillStyle = '#f1ede4'; x.fillRect(bx - 6, 46, 14, 10); x.fillRect(bx - 2, 56, 3, 3); x.fillStyle = CHAR[cid].color; for (let k = 0; k < 3; k++) if (Math.floor(ENDS.t * 6) % 3 >= k) x.fillRect(bx - 3 + k * 4, 50, 2, 2); }
   });
   // placa quemándose
-  x.fillStyle = '#2f8f3a'; x.fillRect(140, 86, 40, 10); x.fillStyle = '#24337a'; x.fillRect(156, 78, 6, 9); x.fillStyle = Math.sin(ENDS.t * 20) > 0 ? '#ff7b1c' : '#ffd34a'; x.fillRect(157, 75, 4, 3);
-  if (Math.random() < .5) ENDS.parts.push({ x: 158 + rand(-2, 2), y: 75, vx: rand(-4, 4), vy: rand(-18, -10), l: rand(3, 6), m: 6, s: rand(2, 4) });
+  x.fillStyle = '#2f8f3a'; x.fillRect(140, 86, 40, 10); x.fillStyle = '#24337a'; x.fillRect(156, 78, 6, 9); if (BAD) { x.fillStyle = '#1a1a1a'; x.fillRect(140, 86, 40, 10); x.fillRect(156, 78, 6, 9); } else { x.fillStyle = Math.sin(ENDS.t * 20) > 0 ? '#ff7b1c' : '#ffd34a'; x.fillRect(157, 75, 4, 3); }
+  if (Math.random() < (BAD ? .12 : .5)) ENDS.parts.push({ x: 158 + rand(-2, 2), y: 75, vx: rand(-4, 4), vy: rand(-18, -10), l: rand(3, 6), m: 6, s: rand(2, 4) });
   for (let i = ENDS.parts.length - 1; i >= 0; i--) { const p = ENDS.parts[i]; p.l -= dt; p.x += (p.vx + Math.sin(ENDS.t + i) * 4) * dt; p.y += p.vy * dt; p.s += dt * 3; if (p.l <= 0) { ENDS.parts.splice(i, 1); continue; } x.fillStyle = `rgba(120,115,120,${.4 * p.l / p.m})`; x.beginPath(); x.arc(p.x, p.y, p.s, 0, TAU); x.fill(); }
   x.fillStyle = `rgba(255,200,120,${.05 * fl})`; x.fillRect(0, 0, W, Hh);
   const g = x.createRadialGradient(160, 90, 40, 160, 90, 200); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.75)'); x.fillStyle = g; x.fillRect(0, 0, W, Hh);
@@ -4011,12 +4046,17 @@ function safeSpot(x, y) {
   return best || { x: 25 * TS, y: 16 * TS };
 }
 
+function floorLeft() { let n = 0; for (let i = 0; i < MW * MH; i++) if (!MAP.void[i] && !MAP.wall[i]) n++; return n; }
+const OUTER_TILES = MW * MH - (SAFE.r - SAFE.l + 1) * (SAFE.b - SAFE.t + 1);
+// cuánto del borde puede haber roto según la vida que le sacaron (etapas)
+function outerCap(z) { const f = 1 - z.hp / z.mhp; return f < .2 ? .3 : f < .4 ? .55 : f < .6 ? .8 : 1; }
+
 /* ---------------------------- ROMPER EL MAPA ---------------------------- */
 // se ejecuta en todos (host y clientes) al recibir el evento 'brk'
-function applyBreak(x0, y0, x1, y1) {
+function applyBreak(x0, y0, x1, y1, force) {
   let n = 0;
   for (let ty = Math.max(0, y0); ty <= Math.min(MH - 1, y1); ty++) for (let tx = Math.max(0, x0); tx <= Math.min(MW - 1, x1); tx++) {
-    if (inSafe(tx, ty)) continue; const i = ti(tx, ty); if (MAP.void[i]) continue;
+    if (!force && inSafe(tx, ty)) continue; const i = ti(tx, ty); if (MAP.void[i]) continue;
     const k = MAP.propAt[i]; if (k) killProp(k - 1);
     MAP.void[i] = 1; MAP.wall[i] = 0; MAP.solid[i] = 0; MAP.propAt[i] = 0; n++;
     G.crumbles.push({ i, t: -Math.random() * .45 - ((tx + ty) % 3) * .05 });
@@ -4025,13 +4065,14 @@ function applyBreak(x0, y0, x1, y1) {
   if (n) {
     G.shake = Math.max(G.shake, 9); sfx('crash'); sfx('slam', (x0 + x1) / 2 * TS, (y0 + y1) / 2 * TS);
     const me = ME();
-    if (me && (me.st === 0 || me.st === 1) && isVoidAt(me.x, me.y)) { const s = safeSpot(me.x, me.y); me.x = s.x; me.y = s.y; L.kbx = L.kby = 0; uiToast('¡SE ROMPIÓ EL PISO!'); G.hurtFlash = .6; }
+    if (me && (me.st === 0 || me.st === 1) && isVoidAt(me.x, me.y) && floorLeft() > 0) { const s = safeSpot(me.x, me.y); me.x = s.x; me.y = s.y; L.kbx = L.kby = 0; uiToast('¡SE ROMPIÓ EL PISO!'); G.hurtFlash = .6; }
   }
 }
-function hostBreak(x0, y0, x1, y1) {
-  fx(['brk', x0, y0, x1, y1]);
+function hostBreak(x0, y0, x1, y1, force) {
+  fx(['brk', x0, y0, x1, y1, force ? 1 : 0]);
   for (const p of G.players.values()) {
     if (p.st === 3 || p.st === 4 || !isVoidAt(p.x, p.y)) continue;
+    if (floorLeft() <= 0) continue;
     if (p.st === 0) hostHurt(p, 25);
     const s = safeSpot(p.x, p.y); p.x = s.x; p.y = s.y; fx(['tp', p.pid, Math.round(s.x), Math.round(s.y)]);
   }
@@ -4107,7 +4148,8 @@ function giantAI(z, dt, targets) {
       if (want !== z.side) { z.bs = 3; z.bt = 1.4; z.inv = 1.4; z.nextSide = want; fx(['gsink', z.id]); break; }
       z.atkT -= dt; if (z.atkT <= 0) { z.atkT = rand(2.5, 3.6); giantSpecial(z, targets); }
       if (z.bt <= 0) {
-        const rect = bandRect(z.side, 3);
+        let rect = bandRect(z.side, 3);
+        if (rect && G.voidN + (rect[2] - rect[0] + 1) * (rect[3] - rect[1] + 1) * .6 > OUTER_TILES * outerCap(z)) { rect = null; if (!z.capMsg || z.capMsg !== outerCap(z)) { z.capMsg = outerCap(z); fx(['feed', 'El Capacitor necesita más energía para seguir rompiendo: ¡bájenle la vida y vuelve a golpear!', '#4a7dff']); } }
         if (rect) { z.band = rect; z.bs = 1; z.bt = 1.15; fx(['brkt', ...rect, 1.15]); fx(['sfx', 'roar', Math.round(z.x), Math.round(z.y)]); }
         else z.bt = 2;
       }
@@ -4153,10 +4195,60 @@ function finalTick(dt) {
   if (H.qteCd > 0) H.qteCd -= dt;
   if (H.qte) { qteHostTick(dt); return; }
   const z = F.giant; if (!z || z.dead || z.dying) return;
+  coreTick(F, z, dt);
   F.spT -= dt;
   const n = Math.max(1, G.players.size), cap = 12 + 5 * n;
   if (F.spT <= 0) { F.spT = 2.8 / (1 + .3 * (n - 1)); if (G.zombies.size - 1 < cap) for (let i = 0; i < 2; i++) { const sp = finalSpawnPoint(false); if (sp) spawnZombie(pickZType(Math.min(G.round, MAX_ROUND)), sp.x, sp.y); } }
 }
+// con el último 20% de vida empieza a romper el patio central, anillo por anillo
+const CORE_EVERY = 7.5, CORE_TELE = 1.8;
+function coreRing(k) {
+  const l = SAFE.l + k, r = SAFE.r - k, t = SAFE.t + k, b = SAFE.b - k;
+  if (l > r || t > b) return null;
+  const rs = [[l, t, r, t]]; if (b !== t) rs.push([l, b, r, b]);
+  if (b - t >= 2) { rs.push([l, t + 1, l, b - 1]); if (r !== l) rs.push([r, t + 1, r, b - 1]); }
+  return rs;
+}
+function coreTick(F, z, dt) {
+  if (!F.core) {
+    if (z.hp / z.mhp > .2) return;
+    F.core = { k: 0, t: 6, tele: false };
+    // primero se derrumba lo que quedaba del borde
+    const o = outerRects(); for (const [, r] of o) fx(['brkt', ...r, 2.2]);
+    H.timers.push({ t: 2.2, fn: () => { if (G.phase !== 'wave') return; for (const [sd, r] of outerRects()) breakBand(sd, r); if (H.fin && H.fin.giant) giantPlace(H.fin.giant); } });
+    fx(['msg', '¡ROMPE EL PATIO CENTRAL!', 'Le queda poca vida… y ahora rompe todo. ¡Termínenlo antes de quedarse sin piso!', '#ff4a6a', 'roar']);
+    return;
+  }
+  const C = F.core; C.t -= dt;
+  const rs = coreRing(C.k); if (!rs) return;
+  if (!C.tele && C.t <= CORE_TELE) { C.tele = true; for (const r of rs) fx(['brkt', ...r, CORE_TELE]); fx(['sfx', 'roar', Math.round(z.x), Math.round(z.y)]); }
+  if (C.t <= 0) {
+    for (const r of rs) hostBreak(...r, true);
+    C.k++; C.t = CORE_EVERY; C.tele = false;
+    const left = coreRing(C.k);
+    if (floorLeft() <= 0 || !left) { hostBadEnd(); return; }
+    let n = 0; for (let k = C.k; coreRing(k); k++) n++;
+    fx(['feed', n === 1 ? '¡QUEDA UN SOLO ANILLO DE PISO!' : `Quedan ${n} anillos de piso.`, '#ff4a6a']);
+  }
+}
+// todo lo que queda del borde, por lado
+function outerRects() {
+  const B = H.fin.b, o = [];
+  if (B.t < SAFE.t) o.push([0, [0, B.t, MW - 1, SAFE.t - 1]]);
+  if (B.b > SAFE.b) o.push([1, [0, SAFE.b + 1, MW - 1, B.b]]);
+  if (B.l < SAFE.l) o.push([2, [B.l, 0, SAFE.l - 1, MH - 1]]);
+  if (B.r > SAFE.r) o.push([3, [SAFE.r + 1, 0, B.r, MH - 1]]);
+  return o;
+}
+// se quedaron sin piso: todos caen al vacío (final malo)
+function hostBadEnd() {
+  if (G.phase === 'over') return;
+  G.phase = 'over'; H.qte = null;
+  const sv = loadSave();
+  const stats = { round: G.round, bad: true, saveRound: sv ? sv.round : 0, players: [...G.players.values()].map(p => ({ cid: p.cid, kills: p.kills, pts: Math.floor(p.pts), revs: p.revs, downs: p.downs, dmg: Math.round(p.dmg) })) };
+  fx(['bad', stats]);
+}
+
 // al bajarle toda la vida queda en 1: se lo remata con el QTE
 function giantDown(z) {
   if (H.qte || H.qteCd > 0 || z.dying || G.phase !== 'wave') return;
@@ -4168,11 +4260,7 @@ function giantDown(z) {
   for (const o of [...G.zombies.values()]) if (!o.giant) killZombie(o, -1, { aoe: true });
   G.eproj.length = 0; G.hazards.length = 0;
   // se derrumba todo lo que queda alrededor de la fuente
-  const B = H.fin.b;
-  if (B.t < SAFE.t) breakBand(0, [0, B.t, MW - 1, SAFE.t - 1]);
-  if (B.b > SAFE.b) breakBand(1, [0, SAFE.b + 1, MW - 1, B.b]);
-  if (B.l < SAFE.l) breakBand(2, [B.l, 0, SAFE.l - 1, MH - 1]);
-  if (B.r > SAFE.r) breakBand(3, [SAFE.r + 1, 0, B.r, MH - 1]);
+  for (const [sd, r] of outerRects()) breakBand(sd, r);
   z.side = H.fin.order[0] === 1 ? 1 : 0; giantPlace(z);
   const len = 6, seq = []; for (let i = 0; i < len; i++) seq.push(randi(1, 4));
   const tries = (H.qteTries || 0) + 1; H.qteTries = tries;
@@ -4192,7 +4280,7 @@ function qteHostTick(dt) {
     return;
   }
   if (Q.t > Q.dur) {   // alguien no llegó: el capacitor se recarga
-    H.qte = null; H.qteCd = 4; const z = H.fin.giant; z.hp = z.mhp * .22; z.bs = 0; z.bt = 2.5; z.atkT = 3; fx(['qtef']);
+    H.qte = null; H.qteCd = 4; const z = H.fin.giant; z.hp = z.mhp * (H.fin.core ? .12 : .22); z.bs = 0; z.bt = 2.5; z.atkT = 3; fx(['qtef']);
   }
 }
 function qteHandle(pid, d) {
@@ -4205,7 +4293,7 @@ function qteHandle(pid, d) {
 /* ------------------------------ TODOS ------------------------------ */
 function finalEvent(ev) {
   switch (ev[0]) {
-    case 'brk': applyBreak(ev[1], ev[2], ev[3], ev[4]); G.brkTele = G.brkTele.filter(b => !(b.r[0] === ev[1] && b.r[1] === ev[2])); return true;
+    case 'brk': applyBreak(ev[1], ev[2], ev[3], ev[4], ev[5]); G.brkTele = G.brkTele.filter(b => !(b.r[0] === ev[1] && b.r[1] === ev[2])); return true;
     case 'wall+': {   // rack de servidores: casillas sólidas temporales
       const w = { id: ev[1], ttl: ev[2], max: ev[2], tiles: ev[3] }; (G.walls = G.walls || []).push(w);
       for (const i of w.tiles) { MAP.solid[i] = 1; const x = (i % MW + .5) * TS, y = ((i / MW | 0) + .5) * TS; for (let k = 0; k < 8; k++) part(x, y - 10, rand(-60, 60), rand(-90, -10), .5, pick(['#3a3f4a', '#8a919c', '#4fdc6a']), 3, 260); }
@@ -4361,7 +4449,11 @@ function drawHeld(p, x, y) {
 function drawPlayer(p) {
   const x = Math.round(p.rx !== undefined ? p.rx : p.x), y = Math.round(p.ry !== undefined ? p.ry : p.y), ch = CHAR[p.cid];
   if (p.st === 3 || p.st === 4) return;
-  const jump = G.win && G.win.stage === 0 ? Math.abs(Math.sin(G.time * 6 + p.pid)) * 10 : 0;
+  if (G.win && G.win.bad) {   // final malo: caen al vacío girando
+    const k = clamp(1 - G.win.t / 2.4, 0, 1); if (k <= 0) return; const s = playerSprite(p.cid, 0, 0);
+    CX.save(); CX.translate(x, y + (1 - k) * 40); CX.rotate((1 - k) * 4 * (p.pid % 2 ? 1 : -1)); CX.scale(k, k); CX.drawImage(s.c, -s.ax, -s.ay); CX.restore(); return;
+  }
+  const jump = G.win && !G.win.bad && G.win.stage === 0 ? Math.abs(Math.sin(G.time * 6 + p.pid)) * 10 : 0;
   if (p.st === 2) {
     const t = tombSprite(p.cid); shadow(x, y, 10, 4); drawSpr(t, x, y);
     if (p.rev > 0) ring(x, y - 18, 14, p.rev, '#6aff6a');
@@ -4384,6 +4476,7 @@ function drawPlayer(p) {
   if (fwr) { CX.strokeStyle = `rgba(74,240,255,${.25 + .1 * Math.sin(G.time * 4)})`; CX.lineWidth = 1; CX.beginPath(); CX.ellipse(x, y - 13, 13, 17, 0, 0, TAU); CX.stroke(); }
   const lv = p.pid === G.meId ? wlv(p.hw) : (p.wl || 1);
   if (lv > 1 && Math.random() < .25) part(x + Math.cos(p.ang) * 14 + rand(-3, 3), y - 12 + Math.sin(p.ang) * 10 + rand(-3, 3), 0, -18, .35, lv === 2 ? '#ffe14a' : '#4af0ff', 1);
+  if ((p.sup || 0) >= 100 && !(p.roll > 0) && !G.win) drawAura(p, s, x, y - jump, flip);
   if (view === 1) drawHeld(p, x, y);
   if (p.roll > 0) { CX.save(); CX.translate(x, y - 14); CX.rotate((p.walkT * 14) % TAU * (flip ? -1 : 1)); CX.drawImage(img || s.c, -s.ax, -s.ay + 14); CX.restore(); }
   else drawSpr(s, x, y - jump + (p.mv ? 0 : Math.round(Math.sin(G.time * 3 + p.pid) * .5)), flip, img);
@@ -4661,6 +4754,9 @@ function renderScreen() {
   CX.setTransform(1, 0, 0, 1, 0, 0);
   const me = ME();
   // viñeta de daño / caído
+  // poca vida: el mundo se va quedando en blanco y negro (entre 50% y 0%)
+  const gray = lowHpGray(me);
+  if (gray > .01) { CX.save(); CX.globalCompositeOperation = 'saturation'; CX.globalAlpha = gray; CX.fillStyle = '#808080'; CX.fillRect(0, 0, SW, SH); CX.restore(); }
   let red = G.hurtFlash; if (me && me.st === 1) red = Math.max(red, .35 + .15 * Math.sin(G.time * 5));
   if (me && me.st === 0 && me.hp / me.mhp < .25) red = Math.max(red, .18 + .1 * Math.sin(G.time * 6));
   if (red > 0) { const g = CX.createRadialGradient(SW / 2, SH / 2, Math.min(SW, SH) * .3, SW / 2, SH / 2, Math.max(SW, SH) * .7); g.addColorStop(0, 'rgba(255,0,0,0)'); g.addColorStop(1, `rgba(200,0,20,${red})`); CX.fillStyle = g; CX.fillRect(0, 0, SW, SH); }
@@ -4877,6 +4973,46 @@ function drawRack(o) {
   CX.fillStyle = '#7d8592'; CX.fillRect(x + 1, y - 21, TS - 2, 2);
   CX.fillStyle = '#4fdc6a'; CX.fillRect(x + 1, y + TS - 3, (TS - 2) * clamp(w.ttl / w.max, 0, 1), 2);
   CX.globalAlpha = 1;
+}
+
+/* ------------------- AURA DE SÚPER CARGADA (tipo saiyajin) ------------------- */
+function drawAura(p, s, x, y, flip) {
+  const col = CHAR[p.cid].color, t = G.time + p.pid * 1.3, cx = x, cy = y - 15;
+  CX.save(); CX.globalCompositeOperation = 'lighter';
+  // llamas que suben: una corona en zigzag que titila
+  for (let layer = 0; layer < 2; layer++) {
+    const rx = layer ? 11 : 15, ry = layer ? 17 : 21, N = 9;
+    CX.globalAlpha = layer ? .32 : .26 + .08 * Math.sin(t * 12);
+    CX.fillStyle = layer ? '#ffffff' : col;
+    CX.beginPath();
+    for (let i = 0; i <= N * 2; i++) {
+      const a = i / (N * 2) * TAU, up = .5 - .5 * Math.sin(a), sp = i % 2 ? (layer ? 6 : 10) + (layer ? 4 : 8) * Math.abs(Math.sin(t * 11 + i * 2.3)) : 0;
+      const px = cx + Math.cos(a) * rx * (i % 2 ? 1.12 : 1), py = cy + Math.sin(a) * ry * .85 - sp * up - 4 * up;
+      if (i) CX.lineTo(Math.round(px), Math.round(py)); else CX.moveTo(Math.round(px), Math.round(py));
+    }
+    CX.closePath(); CX.fill();
+  }
+  // contorno del personaje en su color, un poco más grande
+  const g = tint(s.c, col, 1), sc = 1.14 + .05 * Math.sin(t * 15);
+  CX.globalAlpha = .55;
+  CX.translate(x, y); if (flip) CX.scale(-1, 1);
+  CX.drawImage(g, -s.ax * sc, -s.ay * sc - 1, s.c.width * sc, s.c.height * sc);
+  CX.restore();
+  if (Math.random() < .45) part(x + rand(-11, 11), y - rand(2, 26), rand(-6, 6), -rand(50, 95), .4, Math.random() < .3 ? '#ffffff' : col, 2, -20);
+  if (Math.random() < .04) { const a = rand(0, TAU); addBeam([[x + Math.cos(a) * 8, y - 14 + Math.sin(a) * 10], [x + Math.cos(a) * 18, y - 14 + Math.sin(a) * 22]], '#ffffff', .08, 1, true); }
+}
+/* ------------------- POCA VIDA: blanco y negro + latido ------------------- */
+function lowHpGray(me) {
+  if (!me || G.state !== 'game' || G.win) return 0;
+  if (me.st === 1) return .92;
+  if (me.st !== 0 || !me.mhp) return 0;
+  const r = me.hp / me.mhp; return r >= .5 ? 0 : clamp((.5 - r) / .5, 0, 1) * .92;
+}
+function heartTick(dt) {
+  const me = ME(), g = lowHpGray(me);
+  if (g <= .02 || UI.paused) { G.hbT = 0; return; }
+  G.hbT = (G.hbT || 0) - dt;
+  if (G.hbT <= 0) { G.hbT = 1.15 - .6 * g; sfx('heart', undefined, undefined, .45 + .7 * g); }
 }
 
 /* =====================================================================
@@ -5722,6 +5858,7 @@ function step(dt) {
     updateCam(dt);
   }
   if (G.state === 'game' || G.state === 'ending') storyTick(dt);
+  if (G.state === 'game') heartTick(dt);
   IN.click = false; IN.tap = {}; IN.wheel = 0;
 }
 // cualquier error (de un cuadro, de un evento de red, etc.) se muestra una vez en pantalla para poder reportarlo

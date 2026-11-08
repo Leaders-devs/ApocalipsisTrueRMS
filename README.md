@@ -60,12 +60,12 @@ Abrí `index.html` y elegí **Jugar solo**.
 - **25 rondas** con hordas crecientes y eventos aleatorios (apagón, recursantes, gusanos…).
 - **5 profesores jefe** en orden aleatorio cada partida, con presentación y ataques propios; cualquiera puede salir **reforzado**. Los acompañan ayudantes de cátedra.
 - **Ronda bonus: Boss Rush** — los cinco profesores llegan de a uno, por tiempo: hay que bajarlos antes de que se junten.
-- **Nivel FINAL** — un jefe gigante que rompe el mapa desde los bordes hasta dejar solo el patio de la fuente, y se remata con un **Quick Time Event cooperativo**.
+- **Nivel FINAL** — un jefe gigante que rompe el piso por etapas de vida; con su último 20% rompe también el patio central. Hay que rematarlo con un **Quick Time Event cooperativo** antes de quedarse sin piso… o toca el **final malo**.
 - **Tienda entre rondas** (15 s): armas temáticas, mejoras, niveles de arma, **fusiones** (desde la ronda 10; te dejan con una sola arma) y arrojables (un tipo a la vez: explosivo, señuelo, torreta, cura, veneno o muro).
 - **4 dificultades:** Ingresante (más fácil y +20% de plata), Cursante (normal), Recursante (zombies más duros, armas −20%, tienda +15%, menos comida) y **Libre** (hardcore: un golpe y caés, el doble de zombies, tienda +25%). Pasá el cursor sobre cada una en el lobby para ver el detalle.
 - **Revivir** compañeros durante la ronda o en los primeros 10 s de la siguiente.
 - **Partida guardada** automática al terminar cada ronda (y exportable).
-- Intro, cinemáticas de jefes y un final que no te esperás.
+- Intro, cinemáticas de jefes, un final que no te esperás y un final malo si caen al vacío.
 
 ## Archivos
 
